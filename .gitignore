@@ -1,0 +1,83 @@
+# ==============================================================================
+# Environment & Secrets (NEVER COMMIT)
+# ==============================================================================
+.env
+.env.*
+*.env
+infra/.env
+backend/.env
+frontend/.env*
+
+# Allow template/example files
+!.env.example
+!infra/.env.example
+!*.env.example
+
+# ==============================================================================
+# Python & Virtual Environments
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+razorpay_env/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==============================================================================
+# Databases & Transient State
+# ==============================================================================
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+dev.db
+backend/dev.db
+
+# ==============================================================================
+# Node & Frontend Build Artifacts
+# ==============================================================================
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+build/
+out/
+.next/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.vite/
+
+# ==============================================================================
+# Logs & System Artifacts
+# ==============================================================================
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+scratch/
+
+# ==============================================================================
+# Internal Knowledge & Personal Notes
+# ==============================================================================
+ProjectExp.txt
+agentChat.txt
+chat.txt
+*.txt
+!backend/requirements.txt
