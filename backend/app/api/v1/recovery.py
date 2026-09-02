@@ -8,6 +8,7 @@ from backend.app.models.recovery import RecoveryIncident, AuditLog
 from backend.app.services.simulation_service import simulation_service
 from backend.app.services.bank_health_service import bank_health_service
 from backend.app.services.telegram_service import telegram_service
+from backend.app.services.omniroute_ai_service import omniroute_ai_service
 
 router = APIRouter(prefix="/recovery", tags=["Recovery & Simulation"])
 
@@ -200,3 +201,53 @@ async def reset_ledger(db: AsyncSession = Depends(get_db)):
     await db.execute(delete(AuditLog))
     await db.commit()
     return {"status": "success", "message": "Ledger wiped. Fresh start ready."}
+
+@router.post("/ai-executive-debrief")
+async def get_ai_executive_debrief(db: AsyncSession = Depends(get_db)):
+    """Generate live executive portfolio debrief via OmniRoute AI Gateway."""
+    stmt = select(
+        func.count(RecoveryIncident.id),
+        func.sum(RecoveryIncident.original_amount),
+        func.sum(RecoveryIncident.recovered_amount)
+    )
+    res = await db.execute(stmt)
+    total_count, total_at_risk, total_recovered = res.first()
+
+    total_at_risk = float(total_at_risk or 0.0)
+    total_recovered = float(total_recovered or 0.0)
+    recovery_rate = (total_recovered / total_at_risk * 100) if total_at_risk > 0 else 0.0
+
+    msg_cost = (total_count or 0) * 2.50
+    roi = (total_recovered / msg_cost) if msg_cost > 0 else 0.0
+
+    track_stmt = select(
+        RecoveryIncident.track,
+        func.count(RecoveryIncident.id),
+        func.sum(RecoveryIncident.original_amount),
+        func.sum(RecoveryIncident.recovered_amount)
+    ).group_by(RecoveryIncident.track)
+    track_res = (await db.execute(track_stmt)).all()
+
+    by_track = [
+        {"track": tr, "count": c, "at_risk": float(ar or 0), "recovered": float(rec or 0)}
+        for tr, c, ar, rec in track_res
+    ]
+
+    bank_data = bank_health_service.get_all_banks()
+
+    debrief = await omniroute_ai_service.generate_executive_debrief(
+        total_at_risk=total_at_risk,
+        total_recovered=total_recovered,
+        recovery_rate=recovery_rate,
+        roi_multiplier=roi,
+        incident_count=total_count or 0,
+        track_breakdown=by_track,
+        bank_telemetry=bank_data
+    )
+
+    return {
+        "status": "success",
+        "provider": "OmniRoute Multi-Model Gateway",
+        "model": omniroute_ai_service.model,
+        "debrief": debrief
+    }

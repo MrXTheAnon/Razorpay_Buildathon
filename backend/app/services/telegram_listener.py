@@ -8,6 +8,7 @@ from backend.app.core.database import async_session_factory
 from backend.app.models.recovery import RecoveryIncident, AuditLog
 from backend.app.services.telegram_service import telegram_service
 from backend.app.agents.ptp_agent import ptp_agent
+from backend.app.services.omniroute_ai_service import omniroute_ai_service
 
 logger = logging.getLogger("razorloop.telegram_listener")
 
@@ -106,6 +107,9 @@ class TelegramListener:
                 await telegram_service.send_message(chat_id=chat_id, text=welcome_text)
             elif text.startswith("/myid"):
                 await telegram_service.send_message(chat_id=chat_id, text=f"🔑 Your exact Chat ID: <code>{chat_id}</code>")
+            else:
+                # 🤖 Autonomous AI Recovery Copilot via OmniRoute
+                await self.handle_customer_ai_chat(chat_id, first_name, text)
 
     async def handle_cancel(self, incident_id: str, chat_id: str, msg_id: int, cb_id: str):
         async with async_session_factory() as db:
@@ -203,5 +207,63 @@ class TelegramListener:
                 )
                 await telegram_service.edit_message(chat_id=chat_id, message_id=msg_id, text=alt_text, reply_markup=None)
                 await telegram_service.answer_callback_query(cb_id, text="Switched to alternative rail!")
+
+    async def handle_customer_ai_chat(self, chat_id: str, first_name: str, user_text: str):
+        """Invoke OmniRoute AI Copilot to address customer query with active incident context."""
+        try:
+            async with async_session_factory() as db:
+                stmt = select(RecoveryIncident).where(
+                    (RecoveryIncident.telegram_chat_id == chat_id) | (RecoveryIncident.telegram_chat_id == settings.TELEGRAM_DEMO_CHAT_ID)
+                ).order_by(RecoveryIncident.created_at.desc()).limit(1)
+                res = await db.execute(stmt)
+                inc = res.scalars().first()
+
+                incident_context = inc.to_dict() if inc else {
+                    "track": "in_flight_upi",
+                    "original_amount": 1499.0,
+                    "root_cause": "Payment verification query",
+                    "customer_name": first_name
+                }
+
+                customer_name = inc.customer_name if inc else first_name
+                ai_reply = await omniroute_ai_service.chat_with_customer(
+                    customer_name=customer_name,
+                    incident_context=incident_context,
+                    user_message=user_text
+                )
+
+                keyboard = None
+                if inc and inc.payment_link_url and inc.status != "recovered":
+                    keyboard = {
+                        "inline_keyboard": [
+                            [{"text": "💳 Complete Razorpay Payment", "url": inc.payment_link_url}],
+                            [{"text": "🛑 Stop Reminders", "callback_data": f"cancel:{inc.id}"}]
+                        ]
+                    }
+
+                await telegram_service.send_message(
+                    chat_id=chat_id,
+                    text=f"🤖 <b>RazorLoop Copilot:</b>\n\n{ai_reply}",
+                    reply_markup=keyboard
+                )
+
+                # Log Copilot Interaction in Audit
+                if inc:
+                    audit = AuditLog(
+                        incident_id=inc.id,
+                        agent_name="OmniRoute_AI_Copilot",
+                        event_type="AI_COPILOT_CHAT",
+                        details=f"Customer: '{user_text[:80]}' -> AI Copilot responded with context-aware guidance.",
+                        compliance_rule="RBI Fair Lending & Transparent Dispute Resolution Guidelines",
+                        event_hash=AuditLog.generate_hash("AI_CHAT", inc.id, "COPILOT_INTERACTION", user_text[:30])
+                    )
+                    db.add(audit)
+                    await db.commit()
+        except Exception as e:
+            logger.error(f"Error in handle_customer_ai_chat: {e}")
+            await telegram_service.send_message(
+                chat_id=chat_id,
+                text=f"Namaste {first_name}, our recovery system received your message. Your transaction is safe and no funds were double-debited."
+            )
 
 telegram_listener = TelegramListener()

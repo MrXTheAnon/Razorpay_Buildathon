@@ -1,10 +1,11 @@
 import React from 'react';
-import { Shield, Radio, Terminal, QrCode, ScrollText, Play, RefreshCw, Trash2 } from 'lucide-react';
+import { Shield, Radio, Terminal, QrCode, ScrollText, Play, RefreshCw, Trash2, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   onInjectBatch: () => void;
   onOpenQR: () => void;
   onOpenAudit: () => void;
+  onOpenAIDebrief: () => void;
   onRefresh: () => void;
   onResetLedger: () => void;
   isBatchRunning: boolean;
@@ -18,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onInjectBatch,
   onOpenQR,
   onOpenAudit,
+  onOpenAIDebrief,
   onRefresh,
   onResetLedger,
   isBatchRunning,
@@ -116,6 +118,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <ScrollText className="w-3.5 h-3.5 text-purple-600" />
             <span>Audit Chain</span>
+          </button>
+
+          {/* AI Executive Debrief */}
+          <button
+            onClick={onOpenAIDebrief}
+            className="flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono rounded-xl cream-btn text-indigo-950 hover:text-indigo-900 border-indigo-300 transition cursor-pointer font-semibold shadow-xs"
+            title="Synthesize real-time AI Executive Summary via OmniRoute"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-indigo-700" />
+            <span>AI Debrief</span>
           </button>
 
           {/* Primary Action: Inject Batch */}

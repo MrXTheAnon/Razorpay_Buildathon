@@ -6,6 +6,7 @@ from backend.app.agents.base_agent import BaseRecoveryAgent
 from backend.app.models.recovery import RecoveryIncident
 from backend.app.services.razorpay_service import razorpay_service
 from backend.app.services.telegram_service import telegram_service
+from backend.app.services.omniroute_ai_service import omniroute_ai_service
 
 logger = logging.getLogger("razorloop.upi_agent")
 
@@ -47,12 +48,19 @@ class UPIDropoffAgent(BaseRecoveryAgent):
             compliance_rule="NPCI In-Flight Status Polling Circular (T+90s threshold)"
         )
 
-        # 3. Dispatch Telegram Reassurance Card
+        # 3. Dispatch Telegram Reassurance Card (synthesized via OmniRoute AI)
+        ai_copy = await omniroute_ai_service.synthesize_reassurance_copy(
+            track="in_flight_upi",
+            customer_name=incident.customer_name,
+            amount=incident.original_amount,
+            details="App-switch session interrupted, zero debit confirmed on issuer"
+        )
+        body_text = ai_copy if ai_copy else f"Hey <b>{incident.customer_name}</b>, your payment of <b>₹{incident.original_amount:,.0f}</b> did not go through during app-switch. We verified that <b>₹0 was debited</b>."
+
         msg_text = (
             f"🛡️ <b>RazorLoop Payment Guard</b>\n\n"
-            f"Hey <b>{incident.customer_name}</b>, your payment of <b>₹{incident.original_amount:,.0f}</b> did not go through during app-switch.\n\n"
-            f"✅ <b>Bank Verification:</b> <b>₹0</b> debited from your account.\n"
-            f"🔒 <b>Cart Reserved:</b> Your items are held for <b>15 minutes</b>.\n\n"
+            f"{body_text}\n\n"
+            f"🔒 <b>Cart Reserved:</b> Your items are held for <b>15 minutes</b>.\n"
             f"Tap below to securely complete your payment or split it into installments:"
         )
 

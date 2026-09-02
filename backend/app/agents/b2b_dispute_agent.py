@@ -6,6 +6,7 @@ from backend.app.agents.base_agent import BaseRecoveryAgent
 from backend.app.models.recovery import RecoveryIncident
 from backend.app.services.razorpay_service import razorpay_service
 from backend.app.services.telegram_service import telegram_service
+from backend.app.services.omniroute_ai_service import omniroute_ai_service
 
 logger = logging.getLogger("razorloop.b2b_agent")
 
@@ -50,12 +51,24 @@ class B2BDisputeAgent(BaseRecoveryAgent):
                 f"Generated Smart Collect VA for net amount ₹{net_payable:,.0f} and drafted Credit Note."
             )
 
+            # Generate AI statutory reconciliation memo via OmniRoute
+            ai_memo = await omniroute_ai_service.generate_b2b_dispute_memo(
+                incident_id=incident.id,
+                customer_name=incident.customer_name,
+                original_amount=incident.original_amount,
+                withheld_amount=diag['withheld_amount'],
+                variance_percent=diag['variance_percent'],
+                section_code=diag.get("dispute_type", "194C")
+            )
+
+            memo_note = f"\n\n🤖 <b>OmniRoute Tax Finding:</b>\n<i>{ai_memo}</i>" if ai_memo else ""
+
             # Audit Diagnosis
             await self.log_audit(
                 db=db,
                 incident_id=incident.id,
                 event_type="DISPUTE_DIAGNOSIS",
-                details=f"Parsed AP response: Withheld ₹{diag['withheld_amount']} ({diag['variance_percent']}%). Auto-approved under tolerance policy.",
+                details=f"OmniRoute Tax Reasoning: {ai_memo[:140] if ai_memo else 'Auto-approved under tolerance policy.'}",
                 compliance_rule="Indian Income Tax Act Section 194C/194J Compliance"
             )
 
@@ -69,7 +82,8 @@ class B2BDisputeAgent(BaseRecoveryAgent):
                 f"🏦 <b>Razorpay Smart Collect Details:</b>\n"
                 f"Account: <code>{va['account_number']}</code>\n"
                 f"IFSC: <code>{va['ifsc']}</code>\n"
-                f"UPI ID: <code>{va['upi_id']}</code>\n\n"
+                f"UPI ID: <code>{va['upi_id']}</code>\n"
+                f"{memo_note}\n\n"
                 f"✅ Credit Note draft generated automatically for compliance."
             )
 

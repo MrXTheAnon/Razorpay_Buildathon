@@ -7,6 +7,7 @@ import { BankTelemetryBar } from './components/BankTelemetryBar';
 import { LiveIncidentFeed } from './components/LiveIncidentFeed';
 import { AuditModal } from './components/AuditModal';
 import { QRModal } from './components/QRModal';
+import { AIDebriefModal } from './components/AIDebriefModal';
 
 export const App: React.FC = () => {
   const [metrics, setMetrics] = useState<MetricSummary | null>(null);
@@ -20,6 +21,10 @@ export const App: React.FC = () => {
   const [isResetting, setIsResetting] = useState(false);
   const [isAuditOpen, setIsAuditOpen] = useState(false);
   const [isQROpen, setIsQROpen] = useState(false);
+  const [isAIDebriefOpen, setIsAIDebriefOpen] = useState(false);
+  const [aiDebrief, setAiDebrief] = useState<any>(null);
+  const [isAIDebriefLoading, setIsAIDebriefLoading] = useState(false);
+  const [aiModelName, setAiModelName] = useState('OmniRoute (github/gpt-4o-mini)');
   const [userChatId, setUserChatId] = useState('');
   const [isLiveSync, setIsLiveSync] = useState(true);
 
@@ -119,6 +124,26 @@ export const App: React.FC = () => {
     setIsAuditOpen(true);
   };
 
+  // Open & Generate OmniRoute AI Executive Debrief
+  const handleOpenAIDebrief = async () => {
+    setIsAIDebriefOpen(true);
+    setIsAIDebriefLoading(true);
+    try {
+      const res = await fetch('/api/v1/recovery/ai-executive-debrief', {
+        method: 'POST',
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setAiDebrief(data.debrief);
+        if (data.model) setAiModelName(data.model);
+      }
+    } catch (e) {
+      console.error('Error generating AI debrief:', e);
+    } finally {
+      setIsAIDebriefLoading(false);
+    }
+  };
+
   // 1. Inject Batch (25 cases)
   const handleInjectBatch = async () => {
     setIsBatchRunning(true);
@@ -168,6 +193,7 @@ export const App: React.FC = () => {
         onInjectBatch={handleInjectBatch}
         onOpenQR={() => setIsQROpen(true)}
         onOpenAudit={handleOpenAudit}
+        onOpenAIDebrief={handleOpenAIDebrief}
         onRefresh={handleManualRefresh}
         onResetLedger={handleResetLedger}
         isBatchRunning={isBatchRunning}
@@ -219,6 +245,15 @@ export const App: React.FC = () => {
           handleTriggerSim('in_flight_upi', chatId);
         }}
         defaultChatId={userChatId}
+      />
+
+      <AIDebriefModal
+        isOpen={isAIDebriefOpen}
+        onClose={() => setIsAIDebriefOpen(false)}
+        debrief={aiDebrief}
+        isLoading={isAIDebriefLoading}
+        onRefresh={handleOpenAIDebrief}
+        modelName={aiModelName}
       />
     </div>
   );
