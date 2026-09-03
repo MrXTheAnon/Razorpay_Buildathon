@@ -16,12 +16,17 @@ class OmniRouteAIService:
     def __init__(self):
         # Default to local OmniRoute gateway
         self.base_url = os.getenv("OMNIROUTE_BASE_URL", "http://127.0.0.1:20128/v1")
+        self.api_key = os.getenv("OMNIROUTE_API_KEY", "")
         self.model = os.getenv("OMNIROUTE_MODEL", "github/gpt-4o-mini")
-        self.timeout = 10.0
+        self.timeout = 15.0
 
     async def _call_llm(self, messages: List[Dict[str, str]], temperature: float = 0.4, max_tokens: int = 500) -> Optional[str]:
         """Low-level HTTP call to OmniRoute OpenAI-compatible endpoint with graceful fallback."""
         url = f"{self.base_url}/chat/completions"
+        headers = {"Content-Type": "application/json"}
+        if self.api_key:
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
         payload = {
             "model": self.model,
             "messages": messages,
@@ -31,7 +36,7 @@ class OmniRouteAIService:
         }
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
-                resp = await client.post(url, json=payload)
+                resp = await client.post(url, json=payload, headers=headers)
                 if resp.status_code == 200:
                     text = resp.text.strip()
                     # Check if response returned as Server-Sent Events (SSE) data stream

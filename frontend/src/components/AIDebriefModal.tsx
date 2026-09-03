@@ -131,10 +131,18 @@ export const AIDebriefModal: React.FC<AIDebriefModalProps> = ({
               value={modelName}
               onChange={(e) => onRefresh(e.target.value)}
               disabled={isLoading}
-              className="bg-white border border-[#d6cfbe] text-stone-800 px-2.5 py-1 rounded-xl text-xs font-mono font-semibold cursor-pointer focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-xs"
+              className="bg-white border border-[#d6cfbe] text-stone-800 px-2.5 py-1.5 rounded-xl text-xs font-mono font-semibold cursor-pointer focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-xs max-w-[280px]"
             >
-              <option value="github/gpt-4o-mini">github/gpt-4o-mini (Fast & Low Latency)</option>
-              <option value="github/gpt-4o-2024-11-20">github/gpt-4o (Flagship Frontier Model)</option>
+              <option value="github/gpt-4o-mini">github/gpt-4o-mini</option>
+              <option value="github/gpt-4o-2024-11-20">github/gpt-4o</option>
+              <option value="antigravity/gemini-3.6-flash-high">antigravity/gemini-3.6-flash-high</option>
+              <option value="antigravity/gemini-3.1-pro-low">antigravity/gemini-3.1-pro-low</option>
+              <option value="claude-web/claude-opus-5">claude-web/claude-opus-5</option>
+              <option value="chatgpt-web/gpt-5.6-pro">chatgpt-web/gpt-5.6-pro</option>
+              <option value="deepseek-web/deepseek-v4-pro-think">deepseek-web/deepseek-v4-pro-think</option>
+              <option value="cline/anthropic/claude-opus-4.8">cline/anthropic/claude-opus-4.8</option>
+              <option value="codex/gpt-5.6-terra-ultra">codex/gpt-5.6-terra-ultra</option>
+              <option value="kiro/qwen3-coder-next">kiro/qwen3-coder-next</option>
             </select>
           </div>
 

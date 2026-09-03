@@ -28,6 +28,11 @@ class Settings(BaseSettings):
     # OpenAI / LLM
     OPENAI_API_KEY: str = ""
 
+    # OmniRoute Multi-Model Gateway
+    OMNIROUTE_BASE_URL: str = "http://127.0.0.1:20128/v1"
+    OMNIROUTE_API_KEY: str = ""
+    OMNIROUTE_MODEL: str = "github/gpt-4o-mini"
+
     class Config:
         env_file = str(ENV_PATH)
         env_file_encoding = "utf-8"
