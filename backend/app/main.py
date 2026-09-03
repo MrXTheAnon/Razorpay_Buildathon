@@ -6,6 +6,7 @@ from backend.app.config import settings
 from backend.app.core.database import init_db
 from backend.app.api.v1.webhooks import router as webhooks_router
 from backend.app.api.v1.recovery import router as recovery_router
+from backend.app.api.v1.checkout import router as checkout_router
 from backend.app.services.telegram_listener import telegram_listener
 
 logging.basicConfig(
@@ -32,6 +33,7 @@ app.add_middleware(
 # Include API routers
 app.include_router(webhooks_router, prefix=settings.API_V1_STR)
 app.include_router(recovery_router, prefix=settings.API_V1_STR)
+app.include_router(checkout_router)
 
 polling_task = None
 

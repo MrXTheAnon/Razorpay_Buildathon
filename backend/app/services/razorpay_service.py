@@ -1,3 +1,5 @@
+import os
+import socket
 import logging
 import hmac
 import hashlib
@@ -66,14 +68,27 @@ class RazorpayService:
             except Exception as e:
                 logger.error(f"Failed to create Razorpay payment link via API: {e}. Generating simulated link.")
 
-        # Fallback simulation
-        mock_id = f"plink_mock_{uuid.uuid4().hex[:10]}"
+        # Fallback simulation: Route to local/LAN Mock Razorpay Checkout Page
+        checkout_target = incident_id or f"plink_mock_{uuid.uuid4().hex[:10]}"
         return {
-            "id": mock_id,
-            "short_url": f"https://rzp.io/i/{mock_id}",
+            "id": f"plink_{checkout_target}",
+            "short_url": f"{self.get_checkout_url()}/pay/{checkout_target}",
             "amount": amount_inr,
             "status": "created"
         }
+
+    def get_checkout_url(self) -> str:
+        """Resolve public or LAN checkout base URL for mobile and desktop access."""
+        if os.getenv("PUBLIC_URL"):
+            return os.getenv("PUBLIC_URL").rstrip("/")
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80))
+            ip = s.getsockname()[0]
+            s.close()
+            return f"http://{ip}:8000"
+        except Exception:
+            return "http://localhost:8000"
 
     def verify_webhook_signature(self, body_bytes: bytes, signature: str) -> bool:
         """Verify Razorpay webhook HMAC SHA256 signature."""
