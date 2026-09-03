@@ -68,7 +68,56 @@ def generate_unique_company_name(used_names: Set[str]) -> str:
             return name
     fallback = f"{random.choice(COMPANY_PREFIXES)} {random.choice(COMPANY_SUFFIXES)} ({random.randint(10, 99)})"
     used_names.add(fallback)
-    return fallback
+UPI_CAUSES = [
+    "GPay app-switch freeze on 5G handshake; zero debit verified on issuer core.",
+    "PhonePe biometric timeout during checkout; buyer halted fearing duplicate debit.",
+    "Paytm session killed during app transition; core switch confirms zero debit.",
+    "UPI Intent handler killed by iOS memory manager; bank account untouched.",
+    "BHIM server-side handshake latency exceeded 45s; zero debit confirmed.",
+    "Cred UPI app-switch drop-off; buyer hesitated on second attempt after latency lag.",
+    "Amazon Pay UPI intent crashed on OTP autofill; zero funds debited from bank.",
+    "WhatsApp Pay intent return hook timed out; customer abandoned checkout cart."
+]
+
+PTP_CAUSES = [
+    "Q3 cash flow squeeze on annual renewal; customer requested 2-tranche split.",
+    "Corporate credit card limit reached; buyer negotiated 50% upfront milestone.",
+    "End-of-month liquidity constraint; customer agreed to 50/50 payment plan.",
+    "Quarterly enterprise budget cycle transition; deferred 50% balance to net-15.",
+    "Payroll timing mismatch on executive plan; requested 14-day grace period on 2nd tranche.",
+    "Subscription upgrade sticker shock; customer opted for 2x milestone settlement."
+]
+
+B2B_CAUSES_NORMAL = [
+    "AP department deducted ₹{deducted} under Section 194C (2.0% contractor TDS variance).",
+    "Client accounts payable withheld ₹{deducted} under Section 194C; certificate pending in TRACES.",
+    "Enterprise finance deducted ₹{deducted} (2.0% statutory TDS) awaiting Form 16A reconciliation.",
+    "Corporate procurement withheld ₹{deducted} (Section 194Q 0.1% purchase TDS variance)."
+]
+
+B2B_CAUSES_ESCALATED = [
+    "Enterprise finance deducted ₹{deducted} under Section 194J (10.0% professional tax variance).",
+    "Client AP disputed milestone delivery and withheld ₹{deducted} (12.5% invoice holdback).",
+    "Vendor management withheld ₹{deducted} under Section 194J; exceeds 5% auto-clearance threshold."
+]
+
+MANDATE_CAUSES = [
+    "SBI core banking nightly maintenance (8-11 PM) locked NPCI auto-debit batch.",
+    "HDFC e-NACH mandate presentation timed out due to issuer CBS switch overload.",
+    "ICICI recurring UPI autopay throttled during 9 PM settlement cycle.",
+    "Axis Bank recurring auto-debit returned R08 (Issuer Switch Inoperative).",
+    "Kotak e-mandate presentation failed; core banking scheduled maintenance active.",
+    "Bank of Baroda NPCI auto-debit timed out in 10 PM batch window."
+]
+
+CROSS_BORDER_CAUSES = [
+    "HDFC Visa Signature declined (ISO-8583 57: International e-commerce toggle disabled).",
+    "ICICI Mastercard blocked under RBI LRS mandate; requires 1-tap iMobile unlock.",
+    "SBI Global Debit card rejected: foreign currency cross-border limit set to ₹0.",
+    "Axis Bank World card declined: 3DS2 frictionless flow failed issuer risk filter.",
+    "Standard Chartered card blocked for overseas SaaS billing under RBI card tokenization rules.",
+    "Amex India card auto-declined due to missing dynamic OTP in foreign merchant flow."
+]
 
 class SimulationService:
     async def create_and_trigger_incident(
@@ -204,10 +253,10 @@ class SimulationService:
         await db.refresh(incident)
         return incident
 
-    async def run_batch_simulation(self, db: AsyncSession, count: int = 25) -> Dict[str, Any]:
-        """Simulate a batch of at-risk transactions across all 5 tracks with guaranteed unique names."""
+    async def run_batch_simulation(self, db: AsyncSession, count: int = 20) -> Dict[str, Any]:
+        """Simulate a batch of at-risk transactions across all 5 tracks with guaranteed unique names and randomized causes."""
         tracks = ["in_flight_upi", "ptp_split", "b2b_dispute", "mandate_failure", "cross_border"]
-        weights = [0.28, 0.20, 0.20, 0.16, 0.16]
+        weights = [0.25, 0.20, 0.25, 0.15, 0.15]
 
         existing_names = set((await db.execute(select(RecoveryIncident.customer_name))).scalars().all())
         used_names: Set[str] = set(existing_names)
@@ -224,7 +273,7 @@ class SimulationService:
 
             if selected_track == "in_flight_upi":
                 name = generate_unique_person_name(used_names)
-                amt = random.choice([899.0, 1499.0, 2199.0, 3499.0])
+                amt = float(random.choice([799, 999, 1249, 1499, 1899, 2499, 3299, 4999]))
                 total_at_risk += amt
                 is_recovered = random.random() < 0.75
                 rec_amt = amt if is_recovered else 0.0
@@ -232,6 +281,7 @@ class SimulationService:
                     total_recovered += rec_amt
                     recovered_count += 1
 
+                cause = random.choice(UPI_CAUSES)
                 inc = RecoveryIncident(
                     id=inc_id,
                     customer_name=name,
@@ -239,8 +289,8 @@ class SimulationService:
                     original_amount=amt,
                     recovered_amount=rec_amt,
                     status="recovered" if is_recovered else "intervened",
-                    root_cause="In-flight UPI app-switch drop-off; zero debit verified.",
-                    intervention_action="Dispatched instant 1-click fallback link with double-debit reassurance.",
+                    root_cause=cause,
+                    intervention_action="Dispatched instant 1-click fallback link with zero-debit reassurance.",
                     stopping_rule_triggered="SUCCESS_STOP: Payment captured via Razorpay" if is_recovered else None
                 )
                 db.add(inc)
@@ -248,7 +298,7 @@ class SimulationService:
 
             elif selected_track == "ptp_split":
                 name = generate_unique_person_name(used_names)
-                amt = random.choice([4999.0, 7999.0, 11999.0])
+                amt = float(random.choice([3999, 5499, 7999, 9499, 12999, 15999]))
                 total_at_risk += amt
                 is_recovered = random.random() < 0.65
                 rec_amt = (amt / 2) if is_recovered else 0.0
@@ -256,6 +306,7 @@ class SimulationService:
                     total_recovered += rec_amt
                     recovered_count += 1
 
+                cause = random.choice(PTP_CAUSES)
                 inc = RecoveryIncident(
                     id=inc_id,
                     customer_name=name,
@@ -263,8 +314,8 @@ class SimulationService:
                     original_amount=amt,
                     recovered_amount=rec_amt,
                     status="recovered" if is_recovered else "intervened",
-                    root_cause="Customer liquidity constraint on renewal.",
-                    intervention_action="Negotiated 2-tranche PTP settlement; paused all interim dunning.",
+                    root_cause=cause,
+                    intervention_action="Negotiated 2-tranche milestone settlement; paused all interim dunning.",
                     stopping_rule_triggered="PTP_TRANCHE_PAID: Tranche 1 paid; reminder paused" if is_recovered else None
                 )
                 db.add(inc)
@@ -272,29 +323,29 @@ class SimulationService:
 
             elif selected_track == "b2b_dispute":
                 company_name = generate_unique_company_name(used_names)
-                amt = random.choice([28000.0, 32000.0, 45000.0, 64000.0, 85000.0, 110000.0])
+                amt = float(random.choice([24000, 38500, 48000, 62000, 85000, 115000, 142000]))
                 total_at_risk += amt
                 is_escalated = random.random() < 0.30
 
                 if not is_escalated:
                     variance_pct = 2.0
-                    deducted_amt = amt * 0.02
+                    deducted_amt = round(amt * 0.02, 2)
                     net_amt = amt - deducted_amt
                     total_recovered += net_amt
                     recovered_count += 1
                     status = "recovered"
                     stopping = "SUCCESS_STOP: Net Virtual Account settled"
                     action = "Generated Smart Collect Virtual Account and Credit Note"
-                    cause = f"AP deducted ₹{int(deducted_amt)} under Section 194C (2.0% variance)."
+                    cause = random.choice(B2B_CAUSES_NORMAL).format(deducted=int(deducted_amt))
                 else:
                     variance_pct = 10.0
-                    deducted_amt = amt * 0.10
+                    deducted_amt = round(amt * 0.10, 2)
                     net_amt = 0.0
                     escalated_count += 1
                     status = "escalated"
                     stopping = "ESCALATION_STOP: Variance >5% escalated to CFO"
-                    action = "Escalated to CFO"
-                    cause = f"AP deducted ₹{int(deducted_amt)} under Section 194J (10.0% variance)."
+                    action = "Escalated to CFO with automated tax memo"
+                    cause = random.choice(B2B_CAUSES_ESCALATED).format(deducted=int(deducted_amt))
 
                 inc = RecoveryIncident(
                     id=inc_id,
@@ -312,7 +363,7 @@ class SimulationService:
 
             elif selected_track == "mandate_failure":
                 name = generate_unique_person_name(used_names)
-                amt = random.choice([999.0, 1499.0, 2499.0])
+                amt = float(random.choice([799, 1199, 1499, 1999, 2999, 4499]))
                 total_at_risk += amt
                 is_recovered = random.random() < 0.80
                 rec_amt = amt if is_recovered else 0.0
@@ -320,6 +371,7 @@ class SimulationService:
                     total_recovered += rec_amt
                     recovered_count += 1
 
+                cause = random.choice(MANDATE_CAUSES)
                 inc = RecoveryIncident(
                     id=inc_id,
                     customer_name=name,
@@ -327,7 +379,7 @@ class SimulationService:
                     original_amount=amt,
                     recovered_amount=rec_amt,
                     status="recovered" if is_recovered else "intervened",
-                    root_cause="Issuer core banking downtime during NPCI 9 PM batch.",
+                    root_cause=cause,
                     intervention_action="Rescheduled 24-hr pre-debit notice to morning 06:30 AM window.",
                     stopping_rule_triggered="MANDATE_RESCHEDULED: Pre-debit notice re-aligned to 06:30 AM" if is_recovered else None
                 )
@@ -336,16 +388,15 @@ class SimulationService:
 
             elif selected_track == "cross_border":
                 name = generate_unique_person_name(used_names)
-                amt = random.choice([5499.0, 8999.0, 16500.0, 32000.0])
-                issuer = random.choice(["HDFC", "ICICI", "SBI", "AXIS"])
+                amt = float(random.choice([4999, 6999, 9999, 14500, 22000, 35000]))
                 total_at_risk += amt
-                # 72% recovered via 1-tap card toggle or PayPal alternative rail
                 is_recovered = random.random() < 0.72
                 rec_amt = amt if is_recovered else 0.0
                 if is_recovered:
                     total_recovered += rec_amt
                     recovered_count += 1
 
+                cause = random.choice(CROSS_BORDER_CAUSES)
                 inc = RecoveryIncident(
                     id=inc_id,
                     customer_name=name,
@@ -353,8 +404,8 @@ class SimulationService:
                     original_amount=amt,
                     recovered_amount=rec_amt,
                     status="recovered" if is_recovered else "intervened",
-                    root_cause=f"Cross-border decline on {issuer} (ISO-8583 57: RBI international e-commerce lock).",
-                    intervention_action=f"Dispatched {issuer} MyCards 1-tap unlock guidance + multi-rail fallback link.",
+                    root_cause=cause,
+                    intervention_action="Dispatched 1-tap mobile bank unlock guidance and alternative rail link.",
                     stopping_rule_triggered="SUCCESS_STOP: 3DS2 re-authenticated via card toggle" if is_recovered else None
                 )
                 db.add(inc)

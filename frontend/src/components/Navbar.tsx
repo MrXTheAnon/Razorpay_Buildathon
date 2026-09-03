@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Play className={`w-3.5 h-3.5 ${isBatchRunning ? 'animate-spin' : 'text-emerald-400'}`} />
-            <span>{isBatchRunning ? 'Simulating Batch...' : 'Inject Batch (25 Cases)'}</span>
+            <span>{isBatchRunning ? 'Simulating Batch...' : 'Inject Batch (20 Cases)'}</span>
           </button>
         </div>
       </div>

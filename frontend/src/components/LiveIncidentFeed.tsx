@@ -131,7 +131,7 @@ export const LiveIncidentFeed: React.FC<LiveIncidentFeedProps> = ({ incidents })
               <CheckCircle2 className="w-5 h-5 text-emerald-600" />
             </div>
             <p className="font-semibold text-stone-700">Ledger is clean and ready.</p>
-            <p className="mt-1 text-stone-500">Click "Inject Batch (25 Cases)" or trigger an agent above to start your recording.</p>
+            <p className="mt-1 text-stone-500">Click "Inject Batch (20 Cases)" or trigger an agent above to start your recording.</p>
           </div>
         ) : (
           filteredIncidents.map((inc) => {
@@ -184,9 +184,9 @@ export const LiveIncidentFeed: React.FC<LiveIncidentFeedProps> = ({ incidents })
                     </span>
                   </div>
 
-                  {inc.payment_link_url && (
+                  {inc.status !== 'recovered' && (
                     <a
-                      href={inc.payment_link_url}
+                      href={`/pay/${inc.id}`}
                       target="_blank"
                       rel="noreferrer"
                       className="flex items-center gap-1.5 text-sky-800 hover:text-sky-950 font-mono text-[11px] shrink-0 font-semibold transition"

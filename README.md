@@ -1,222 +1,299 @@
 # RazorLoop
 
 > **Autonomous, Bounded Revenue Recovery Engine Built on Razorpay Rails**  
-> *Track 03: AI Revenue Recovery — Razorpay Buildathon 2026*
+> *Track 03: AI Revenue Recovery — Razorpay Buildathon*
 
 ---
 
-## 1. The Core Problem: Why Blind Retries Fail
+## Overview
 
-In payment engineering, revenue loss is rarely an atomic, single-step failure. It is almost always a procedural degradation:
-* An OS terminates a mobile browser session during a UPI app-switch, leaving the customer terrified that their bank account will be double-debited.
-* An annual SaaS subscriber hits an end-of-month credit card limit and is cancelled by an inflexible all-or-nothing billing system.
-* An enterprise Accounts Payable department unilaterally withholds 2% TDS under Section 194C on a ₹45,000 invoice, leaving standard ERPs to blindly spam the client CFO with ignored overdue notices.
-* Recurring UPI Autopay / e-NACH debits fire blindly during NPCI core banking maintenance (8 PM–11 PM), triggering bank rejection fees and NPCI mandate auto-revocation.
-* International cardholders purchasing in India have their transactions rejected under RBI LRS default-disabled card controls, receiving only an opaque `ISO-8583 57: Transaction Not Permitted` error.
+In modern payment engineering, revenue leakage is rarely caused by simple, permanent declines. It is almost always a procedural breakdown:
 
-Standard recovery tools rely on blind cron retries and spammy dunning emails. In India's regulated financial rails, blind retries are actively destructive: they violate bank throttling limits, incur merchant penalties, and permanently churn customers.
+* An operating system terminates a mobile browser during a UPI app-switch, leaving the customer uncertain whether their account was debited.
+* An annual enterprise subscriber reaches a temporary card limit and gets immediately cut off by rigid billing software.
+* An enterprise Accounts Payable team withholds 2% TDS under Section 194C on a ₹50,000 invoice, triggering aggressive automated dunning against the client's finance department.
+* Recurring UPI Autopay / e-NACH charges fire blindly during scheduled core banking maintenance windows, causing bank rejection penalties and mandate revocations.
+* International cardholders purchasing in India face declines under RBI international e-commerce mandates, receiving only an opaque `ISO-8583 57` code.
 
-**RazorLoop** is an autonomous, event-driven recovery engine that closes the loop between gateway telemetry, issuing bank health, and context-aware interventions—strictly governed by deterministic **stopping rules**.
+Standard recovery solutions rely on blunt cron retries and repetitive emails. On regulated Indian payment rails, blind retries fail: they breach bank rate limits, trigger penalty fees, and damage customer trust.
+
+**RazorLoop** is an event-driven, autonomous recovery engine designed to bridge the gap between gateway telemetry, issuing bank health, and context-aware interventions—governed by strict, deterministic **stopping rules**.
 
 ---
 
-## 2. Architecture: The Tri-State Protocol
+## Core Architecture: The Tri-State Protocol
 
-Every autonomous recovery workflow in RazorLoop enforces a three-stage bounded lifecycle:
+Every recovery workflow in RazorLoop follows a bounded, three-stage lifecycle:
 
 ```
-┌─────────────────┐       ┌────────────────────────┐       ┌─────────────────────────┐
-│   1. DIAGNOSE   │ ────> │ 2. BOUNDED INTERVENE   │ ────> │  3. HARD STOPPING RULE  │
-└─────────────────┘       └────────────────────────┘       └─────────────────────────┘
-  • Gateway state           • 1-Click Razorpay link          • payment.captured webhook
-  • Bank telemetry          • Smart Collect Net VA           • Explicit user opt-out
-  • Dispute variance        • Rescheduled PN notice          • Max retry / CFO ceiling
+┌─────────────────────────┐       ┌───────────────────────────────┐       ┌─────────────────────────────┐
+│       1. DIAGNOSE       │ ────> │     2. BOUNDED INTERVENE      │ ────> │    3. HARD STOPPING RULE    │
+└─────────────────────────┘       └───────────────────────────────┘       └─────────────────────────────┘
+  • Gateway error inspection        • Dynamic Razorpay Checkout             • payment.captured webhook
+  • NPCI bank health telemetry      • Smart Collect Net Virtual Account     • User cancellation / opt-out
+  • TDS variance calculation        • Rescheduled 24-hr mandate notice      • Dispute threshold escalation
 ```
 
-1. **Diagnosis**: At failure detection ($T+90\text{s}$), the agent inspects the Razorpay gateway state and issuer telemetry to verify zero-debit conditions, withholding percentages, or maintenance windows before taking action.
-2. **Bounded Intervention**: The agent executes a bounded, non-coercive recovery action: generating dynamic Razorpay Payment Links, structuring multi-tranche PTP agreements, or creating Net Smart Collect Virtual Accounts.
-3. **Hard Stopping Rule**: Dunning and retries cease immediately upon debt satisfaction (`payment.captured`), customer cancellation (`cancel:`), or policy breaches (e.g., dispute variance $> 5\%$).
+1. **Diagnosis**: Upon detecting a failure, the engine evaluates gateway error codes, issuer switch health, and transaction metadata to establish root cause before executing any outreach.
+2. **Bounded Intervention**: The appropriate autonomous agent executes a single, proportionate recovery action: generating dynamic checkout links, structuring multi-tranche milestone agreements, or provisioning net settlement accounts.
+3. **Hard Stopping Rule**: All communication and automated retries terminate immediately when debt is satisfied (`payment.captured`), when the user explicitly cancels, or when policy ceilings are reached.
 
 ---
 
-## 3. The 5 Autonomous Recovery Agents
+## The 5 Specialized Recovery Agents
 
-| # | Recovery Agent | Failure Mode Targeted | Autonomous Action | Deterministic Stopping Rule |
-| :-: | :--- | :--- | :--- | :--- |
-| **1** | **In-Flight UPI Drop-off Reassurer** | Mobile app-switch crash during UPI checkout; buyer halts fearing double-debit. | Confirms ₹0 debited on issuer; issues instant 1-click fallback link with 15-min cart lock. | Halts instantly on `payment.captured` or user clicking *Cancel Order*. |
-| **2** | **Promise-to-Pay (PTP) Negotiator** | Annual renewal failure due to temporary credit/cash-flow constraint. | Restructures debt into 2x 50% tranches; locks in a 15-day dunning pause. | Capturing Tranche 1 payment suppresses all automated dunning. |
-| **3** | **B2B TDS / GST Dispute Chaser** | Enterprise AP withholds 2% TDS (194C vs 194J); invoices stall indefinitely. | Auto-validates variance ($\le 5\%$); generates Net Smart Collect VA + Credit Note draft. | Variance $> 5\%$ halts reminders and escalates packet directly to CFO. |
-| **4** | **Mandate Degradation Healer** | UPI Autopay / e-NACH failures during bank maintenance (e.g., SBI 8–11 PM). | Inspects bank telemetry; auto-reschedules 24-hr pre-debit notice to `06:30 AM`. | Suppresses blind retries; enforces maximum 3 compliant attempts. |
-| **5** | **Cross-Border Decline Translator** | International card decline under RBI default-off international e-commerce rules. | Identifies issuer (HDFC/ICICI/SBI); sends 1-tap app toggle guide + PayPal fallback. | Halts upon 3DS2 re-authentication or alternative rail selection. |
-
----
-
-## 4. Razorpay Rails & Integrations
-
-RazorLoop interfaces directly with core Razorpay primitives:
-
-* **Razorpay Payment Links API (`/v1/payment_links`)**: Dynamically generates localized, multi-rail payment links embedded into interactive Telegram recovery cards.
-* **Razorpay Smart Collect Virtual Accounts (`/v1/virtual_accounts`)**: Provisions dedicated virtual accounts (UPI ID + NEFT/IFSC) for B2B net settlements, automatically reconciling disputed invoices.
-* **Webhook Verification Engine**: Verifies cryptographic signatures using `X-Razorpay-Signature` and HMAC-SHA256 against `RAZORPAY_WEBHOOK_SECRET` to execute immediate stopping rules.
-* **Cryptographic Audit Ledger**: Every agent diagnosis, intervention, and stopping rule execution is hashed and chained into an immutable append-only ledger (`SHA-256(prev_hash + incident_id + event + details)`), satisfying RBI digital lending and recovery audit compliance.
+| # | Agent | Failure Mode | Intervention Strategy | Stopping Rule |
+| :---: | :--- | :--- | :--- | :--- |
+| **1** | **In-Flight UPI Drop-off Reassurer** | Mobile app-switch drop-off; buyer abandons session fearing duplicate charge. | Verifies ₹0 debit with issuer core; sends instant reassurance message with 15-minute cart lock and checkout link. | Halts instantly on payment capture or user cancellation. |
+| **2** | **Promise-to-Pay (PTP) Negotiator** | Annual renewal failure due to temporary liquidity or card limit constraints. | Proactively offers a 2-tranche structured milestone settlement (50% today, 50% in 15 days) and pauses dunning. | Capturing Tranche 1 payment suppresses all automated dunning. |
+| **3** | **B2B TDS / GST Dispute Chaser** | Enterprise AP withholds 2% statutory TDS (Section 194C/194J); invoice remains unpaid. | Validates tax deduction percentage ($\le 5\%$); automatically generates a Net Smart Collect Virtual Account and draft Credit Note. | Variances $> 5\%$ halt automation and route an escalation memo to the CFO. |
+| **4** | **Mandate Degradation Healer** | Recurring UPI Autopay / e-NACH execution during bank downtime (e.g., SBI 8 PM–11 PM). | Cross-references issuer health telemetry; reschedules 24-hour pre-debit notification to 06:30 AM outside downtime. | Limits retries to maximum 3 compliant attempts; avoids mandate revocation. |
+| **5** | **Cross-Border Decline Translator** | International card decline under RBI default-off international e-commerce mandate. | Identifies issuing bank (HDFC, ICICI, SBI, Axis); sends 1-tap card toggle instructions with multi-currency checkout options. | Halts upon 3DS2 re-authentication or alternative rail selection. |
 
 ---
 
-## 5. Technology Stack
+## OmniRoute Multi-Model AI Layer
 
-* **Backend**: Python 3.11, FastAPI, SQLAlchemy 2.0 (Async), SQLite WAL Mode (with PostgreSQL compatibility via `asyncpg`).
-* **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Lucide Icons.
-* **Messaging Channel**: Telegram Bot API (`python-telegram-bot` / long-polling HTTP client via `httpx`).
-* **Payment Gateway**: Official `razorpay` Python SDK.
+RazorLoop integrates with an **OmniRoute** gateway to bring real-time intelligence to recovery operations:
+
+* **Real-time Incident Synthesis**: An AI Executive Debrief engine analyzes active ledger sessions to extract systemic gateway failure trends, bank downtime correlations, and revenue impact.
+* **Dynamic Model Routing**: Supports seamless runtime model switching across `github/gpt-4o-mini`, `anthropic/claude-3.5-sonnet`, `meta/llama-3.3-70b`, and `google/gemini-2.0-flash`.
+* **Context-Aware Telegram Support Copilot**: Customers can message the Telegram recovery bot directly. The AI copilot maintains awareness of the incident's live status, payment reference IDs, and failure reasons, answering questions accurately and reassuring users once payment is confirmed.
 
 ---
 
-## 6. Project Structure
+## Razorpay Platform Integrations
+
+* **Razorpay Orders & Standard Checkout**: Creates dedicated orders (`client.order.create`) with metadata tagging, rendering the responsive Razorpay Checkout modal for customer completion.
+* **Razorpay Smart Collect Virtual Accounts**: Automatically provisions virtual accounts (UPI ID + NEFT/IFSC) for B2B net settlements, enabling reconciliation of tax-disputed invoices.
+* **Webhook Signature Verification**: Validates incoming events using HMAC-SHA256 with `X-Razorpay-Signature` against `RAZORPAY_WEBHOOK_SECRET` for instant payment confirmation.
+* **Cryptographic Compliance Ledger**: Every agent diagnosis, intervention, and stopping rule trigger is hashed into an append-only SHA-256 audit chain (`SHA-256(prev_hash + incident_id + event + details)`), satisfying RBI digital lending and recovery audit guidelines.
+
+---
+
+## System Architecture
 
 ```
+                               ┌──────────────────────────────────────────────┐
+                               │           React + Vite Dashboard             │
+                               │  Financial Ticker • Incident Feed • Debrief  │
+                               └──────────────────────┬───────────────────────┘
+                                                      │ HTTP / WebSocket
+                                                      ▼
+┌─────────────────────────┐    ┌──────────────────────────────────────────────┐    ┌─────────────────────────┐
+│     Telegram API        │<──>│               FastAPI Backend                │<──>│    OmniRoute Gateway    │
+│  Interactive Cards      │    │  • Recovery Engine   • Checkout Renderer     │    │  • Model Routing        │
+│  2-Way AI Copilot       │    │  • Webhook Ingress   • Bank Telemetry Feed   │    │  • Executive Debrief    │
+└─────────────────────────┘    └──────────────────────┬───────────────────────┘    └─────────────────────────┘
+                                                      │
+                         ┌────────────────────────────┴────────────────────────────┐
+                         ▼                                                         ▼
+         ┌───────────────────────────────┐                         ┌───────────────────────────────┐
+         │     Razorpay Platform         │                         │    SQLite (Async WAL Mode)    │
+         │  Orders • Virtual Accounts    │                         │  Incidents • Audit Hash Chain │
+         │  Standard Checkout • Webhooks │                         │  Bank Health Cache            │
+         └───────────────────────────────┘                         └───────────────────────────────┘
+```
+
+---
+
+## Repository Structure
+
+```
+Razorpay_Buildathon/
 ├── backend/
 │   ├── app/
-│   │   ├── agents/                     # Bounded Recovery Agents
-│   │   │   ├── base_agent.py           # Base abstract lifecycle & audit logging
-│   │   │   ├── upi_dropoff_agent.py    # Track 2: In-flight UPI drop-off handler
-│   │   │   ├── ptp_agent.py            # Track 6: Promise-to-Pay restructurer
-│   │   │   ├── b2b_dispute_agent.py    # Track 3: B2B TDS/GST micro-disputes
-│   │   │   ├── mandate_healer_agent.py # Track 1: UPI Autopay & e-NACH healer
-│   │   │   └── cross_border_agent.py   # Track 4: Cross-border decline translator
+│   │   ├── agents/                     # Recovery Agents
+│   │   │   ├── base_agent.py           # Abstract agent lifecycle and audit logger
+│   │   │   ├── upi_dropoff_agent.py    # Track 1: In-flight UPI drop-off handler
+│   │   │   ├── ptp_agent.py            # Track 2: Promise-to-Pay restructurer
+│   │   │   ├── b2b_dispute_agent.py    # Track 3: B2B TDS/GST dispute reconciler
+│   │   │   ├── mandate_healer_agent.py # Track 4: Mandate degradation healer
+│   │   │   └── cross_border_agent.py   # Track 5: Cross-border decline translator
 │   │   ├── api/v1/
 │   │   │   ├── recovery.py             # Metrics, incident feed, simulation, reset
-│   │   │   └── webhooks.py             # Razorpay webhook ingress & HMAC verification
+│   │   │   ├── checkout.py             # Standard Razorpay checkout renderer & quick-pay
+│   │   │   └── webhooks.py             # Razorpay webhook listener & signature verifier
 │   │   ├── core/
-│   │   │   └── database.py             # Async SQLAlchemy engine with WAL mode
+│   │   │   └── database.py             # Async SQLAlchemy engine with SQLite WAL
 │   │   ├── models/
 │   │   │   └── recovery.py             # Incident, AuditLog, and BankHealth schemas
 │   │   ├── services/
-│   │   │   ├── razorpay_service.py     # Real Razorpay API client wrapper
-│   │   │   ├── telegram_service.py     # HTML recovery cards & inline button dispatcher
-│   │   │   ├── telegram_listener.py    # Async long-polling receiver for button clicks
-│   │   │   ├── bank_health_service.py  # NPCI issuer bank health telemetry
-│   │   │   └── simulation_service.py   # Deterministic multi-track batch generator
-│   │   ├── config.py                   # Pydantic BaseSettings environment loader
-│   │   └── main.py                     # FastAPI application entrypoint
-│   └── tests/
-│       └── test_recovery.py            # Pytest test suite
+│   │   │   ├── razorpay_service.py     # Razorpay API client wrapper
+│   │   │   ├── omniroute_ai_service.py # Multi-model gateway & Telegram copilot
+│   │   │   ├── telegram_service.py     # Telegram message and inline keyboard builder
+│   │   │   ├── telegram_listener.py    # Long-polling listener for interactive buttons & chat
+│   │   │   ├── bank_health_service.py  # Issuer bank telemetry provider
+│   │   │   └── simulation_service.py   # Multi-track incident generator
+│   │   ├── config.py                   # Environment configuration loader
+│   │   └── main.py                     # FastAPI application entrypoint & static mount
+│   └── requirements.txt                # Python backend dependencies
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Navbar.tsx              # System badges, Live Sync toggle, reset button
-│   │   │   ├── FinancialTicker.tsx     # At-Risk, Won-Back, Yield %, ROI metrics
-│   │   │   ├── BankTelemetryBar.tsx    # Live Indian bank health metrics
-│   │   │   ├── AgentLanes.tsx          # The 5 Bounded Agent command cards
-│   │   │   ├── LiveIncidentFeed.tsx    # Filterable incident ledger & drawer inspector
+│   │   │   ├── Navbar.tsx              # Navigation, batch injection, reset controls
+│   │   │   ├── FinancialTicker.tsx     # At-Risk, Recovered, Yield %, and ROI metrics
+│   │   │   ├── BankTelemetryBar.tsx    # Live issuer health metrics (HDFC, SBI, ICICI, Axis)
+│   │   │   ├── AgentLanes.tsx          # Interactive agent demo trigger cards
+│   │   │   ├── LiveIncidentFeed.tsx    # Filterable ledger feed & incident drawer
+│   │   │   ├── AIDebriefModal.tsx      # Multi-model executive debrief modal
 │   │   │   ├── AuditModal.tsx          # SHA-256 cryptographic compliance inspector
-│   │   │   └── QRModal.tsx             # Mobile phone Telegram pairing modal
-│   │   ├── App.tsx                     # Main dashboard layout coordinator
-│   │   ├── types.ts                    # Strict TypeScript data models
-│   │   └── index.css                   # Custom natural cream styling & black shadows
-│   └── package.json
+│   │   │   └── QRModal.tsx             # Telegram mobile pairing modal
+│   │   ├── App.tsx                     # Dashboard state management
+│   │   ├── types.ts                    # TypeScript interface definitions
+│   │   └── index.css                   # Custom theme and styling
+│   ├── package.json
+│   └── vite.config.ts
 ├── infra/
-│   ├── .env.example                    # Sample configuration template
-│   └── docker-compose.yml              # Optional containerized deployment
-├── run_demo.sh                         # Single-command launcher for backend & frontend
+│   ├── .env.example                    # Environment template
+│   └── docker-compose.yml              # Containerized deployment definition
+├── run_demo.sh                         # Unified startup script
 └── LICENSE                             # MIT License
 ```
 
 ---
 
-## 7. Getting Started
+## Technology Stack
+
+* **Backend**: Python 3.11, FastAPI, SQLAlchemy 2.0 (Async), SQLite with Write-Ahead Logging (WAL Mode), `httpx`, `pydantic-settings`.
+* **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Lucide Icons.
+* **Payments Engine**: Official `razorpay` Python SDK, Razorpay Standard Checkout JS.
+* **OmniRoute AI Gateway**: OpenAI-compatible routing interface with runtime model selection.
+* **Customer Messaging**: Telegram Bot API with interactive inline keyboards and long-polling event loop.
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
 * Python 3.10+
 * Node.js 18+ and `npm`
-* Razorpay Test Account credentials ([dashboard.razorpay.com](https://dashboard.razorpay.com))
-* Telegram Account (for live mobile phone testing)
+* A Razorpay Test Account ([dashboard.razorpay.com](https://dashboard.razorpay.com))
+* A Telegram Bot token (from `@BotFather`)
 
-### Quick Start (Single Command)
+### 1. Clone & Configure
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/razorloop.git
-   cd razorloop
-   ```
+```bash
+git clone https://github.com/<your-username>/Razorpay_Buildathon.git
+cd Razorpay_Buildathon
 
-2. **Configure environment variables**:
-   ```bash
-   cp infra/.env.example infra/.env
-   ```
-   Edit `infra/.env` with your Razorpay Test API keys (`RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`) and your Telegram Bot Token (`TELEGRAM_BOT_TOKEN`).
+# Copy configuration template
+cp infra/.env.example infra/.env
+```
 
-3. **Install dependencies**:
-   ```bash
-   # Python backend
-   python3 -m venv razorpay_env
-   source razorpay_env/bin/activate
-   pip install -r backend/requirements.txt  # or: pip install fastapi uvicorn httpx pydantic sqlalchemy aiosqlite razorpay
+Edit `infra/.env` with your API credentials:
 
-   # Frontend
-   npm --prefix frontend install
-   ```
+```ini
+RAZORPAY_KEY_ID="rzp_test_yourKeyHere"
+RAZORPAY_KEY_SECRET="yourSecretHere"
+RAZORPAY_WEBHOOK_SECRET="whsec_yourSecretHere"
 
-4. **Run both services**:
-   ```bash
-   chmod +x run_demo.sh
-   ./run_demo.sh
-   ```
+TELEGRAM_BOT_TOKEN="your_bot_token"
+TELEGRAM_DEMO_CHAT_ID="your_telegram_chat_id"
 
-* Dashboard UI: [http://localhost:5173](http://localhost:5173)
-* Backend API & Swagger Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+# Optional OmniRoute / LLM configuration
+OMNIROUTE_BASE_URL="http://127.0.0.1:20128/v1"
+OMNIROUTE_API_KEY="your_omniroute_key"
+OMNIROUTE_MODEL="github/gpt-4o-mini"
+
+# Local network IP for mobile testing
+APP_HOST_URL="http://localhost:8000"
+```
+
+### 2. Install Dependencies
+
+```bash
+# Python backend
+python3 -m venv razorpay_env
+source razorpay_env/bin/activate
+pip install -r backend/requirements.txt
+
+# Frontend
+npm --prefix frontend install
+```
+
+### 3. Run Application
+
+You can launch both services using the included startup script:
+
+```bash
+chmod +x run_demo.sh
+./run_demo.sh
+```
+
+Or run them individually:
+
+```bash
+# Terminal 1: Backend
+source razorpay_env/bin/activate
+uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+
+# Terminal 2: Frontend
+npm --prefix frontend run dev
+```
+
+* **Dashboard**: [http://localhost:5173](http://localhost:5173) (or [http://localhost:8000](http://localhost:8000))
+* **Swagger API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
-## 8. Testing & Demo Workflow
+## Demo & Verification Workflow
 
-### 1. Fresh Start
-Click **"Reset Ledger"** in the top navigation bar. This invokes `POST /api/v1/recovery/reset` to wipe historical SQLite records, returning all counters to ₹0.
+### 1. Reset Ledger
+Click **"Reset Ledger"** in the top navigation bar. This invokes `POST /api/v1/recovery/reset` to wipe test records and return all financial metrics to baseline.
 
 ### 2. Batch Injection (Synthetic Load)
-Click **"Inject Batch (25 Cases)"**. The simulator distributes 25 distinct transactions across all 5 recovery tracks with guaranteed unique consumer and company names, computing:
-* **Recovery Yield**: Typically converts **55%–65%** of at-risk funds.
-* **Net Recovery ROI**: Yields **4,000x+** compared to baseline communication overhead (calculated at ₹2.50 per notification).
+Click **"Inject Batch (20 Cases)"**. The simulator generates 20 realistic payment drop-offs and disputes across all 5 tracks with guaranteed unique customer names:
+* **Recovery Yield**: Evaluates portfolio recovery percentage (typically 55%–70%).
+* **Net Recovery ROI**: Computes net recovered funds relative to communication cost (estimated at ₹2.50 per notification).
 
 ### 3. Live Mobile Phone Test
-1. Click **"Connect Mobile"** to reveal the Telegram pairing QR code.
-2. Open Telegram, search `@razor_loop_bot`, and tap `/start`.
-3. Click any of the 5 **"Trigger Demo"** buttons on the dashboard:
-   * **In-Flight UPI**: Dispatches an instant reassurance card confirming ₹0 debited with a live Razorpay checkout link.
-   * **PTP Demo**: Dispatches a 2-tranche restructuring card with a 15-day dunning pause.
-   * **B2B Dispute**: Reconciles a 2% TDS dispute and provisions a Net Smart Collect Virtual Account.
-   * **Mandate Healer**: Reschedules an e-NACH/Autopay debit notice to `06:30 AM`.
-   * **Cross-Border**: Translates an ISO-8583 decline into 1-tap HDFC/ICICI app guidance.
-4. Interact directly on your phone: clicking *"Complete via Razorpay"* opens the gateway, while clicking *"Cancel Order"* immediately invokes the agent's stopping rule.
+1. Click **"Connect Mobile"** on the dashboard to view your Telegram pairing instructions.
+2. Start the bot on Telegram (`/start`).
+3. Click any **"Trigger Demo"** button on the dashboard:
+   * **In-Flight UPI**: Dispatches a card verifying ₹0 debited with a quick checkout link.
+   * **PTP Demo**: Offers a 2-tranche restructuring card with a 15-day dunning pause.
+   * **B2B Dispute**: Reconciles a 2% TDS variance and generates a Net Smart Collect Virtual Account.
+   * **Mandate Healer**: Reschedules an Autopay debit to 06:30 AM outside bank maintenance windows.
+   * **Cross-Border**: Delivers 1-tap international e-commerce activation instructions for HDFC/ICICI/SBI cards.
+4. Tap **[ Complete Card Checkout ]** on Telegram: it opens the checkout page in your browser.
+5. Complete the payment using standard test credentials. The system updates the Telegram card to **"Payment Captured (Confirmed)"**, terminates further dunning, and returns to the dashboard.
 
-### 4. Regulatory Audit Verification
-Click **"Audit Chain"** to inspect the append-only SHA-256 hash chain verifying that every recovery action adhered to RBI and NPCI guidelines.
+### 4. Conversational AI Copilot Test
+Send a message to your Telegram bot (e.g., *"Did my payment go through?"* or *"Why did my card get declined?"*). The AI copilot reads the live incident record and provides an accurate, context-grounded response.
 
----
-
-## 9. API Reference
-
-| Endpoint | Method | Description |
-| :--- | :---: | :--- |
-| `/api/v1/recovery/metrics` | `GET` | Aggregated financial metrics (At-Risk, Won-Back, Yield %, ROI). |
-| `/api/v1/recovery/incidents` | `GET` | Filterable stream of recovery transactions (masked chat IDs). |
-| `/api/v1/recovery/simulate` | `POST` | Trigger a single live at-risk incident with Telegram dispatch. |
-| `/api/v1/recovery/batch-simulate` | `POST` | Inject a batch of $N$ diverse cases with guaranteed unique names. |
-| `/api/v1/recovery/bank-telemetry` | `GET` | Core banking success rates for HDFC, SBI, ICICI, and Axis. |
-| `/api/v1/recovery/audit-logs` | `GET` | Cryptographic SHA-256 audit ledger entries. |
-| `/api/v1/recovery/reset` | `POST` | Wipe SQLite cache to return ledger to a clean starting state. |
-| `/api/v1/webhooks/razorpay` | `POST` | Razorpay webhook ingress with HMAC-SHA256 signature verification. |
+### 5. Regulatory Audit Verification
+Click **"Audit Chain"** to inspect the append-only SHA-256 cryptographic audit trail verifying that every action complied with regulatory constraints.
 
 ---
 
-## 10. Security & Privacy Safeguards
+## API Reference
 
-* **No Credentials in Frontend**: Razorpay API secrets and bot tokens are strictly isolated in `infra/.env` and consumed server-side.
-* **PII & Chat ID Masking**: Telegram chat IDs and customer phone numbers are masked across all public API serialization (`6*******4` and `+91 98****3210`).
-* **Non-Coercive Recovery**: All agents enforce customer opt-out mechanisms with zero retry spam after debt satisfaction or explicit cancellation.
+| Method | Endpoint | Description |
+| :---: | :--- | :--- |
+| `GET` | `/api/v1/recovery/metrics` | Financial metrics (At-Risk, Recovered, Recovery Yield, Net ROI). |
+| `GET` | `/api/v1/recovery/incidents` | Filterable list of recovery incidents with masked PII. |
+| `POST` | `/api/v1/recovery/simulate` | Trigger a single live recovery incident with Telegram dispatch. |
+| `POST` | `/api/v1/recovery/batch-simulate` | Inject a batch of $N$ diverse cases across all 5 tracks. |
+| `POST` | `/api/v1/recovery/simulate-payment` | Manually capture and resolve an incident to test stopping rules. |
+| `GET` | `/api/v1/recovery/bank-telemetry` | Current core banking health for HDFC, SBI, ICICI, and Axis. |
+| `GET` | `/api/v1/recovery/audit-logs` | Cryptographic SHA-256 audit ledger entries. |
+| `POST` | `/api/v1/recovery/ai-executive-debrief` | Generate an AI summary and systemic analysis using OmniRoute. |
+| `POST` | `/api/v1/recovery/reset` | Reset the ledger to a clean starting state. |
+| `POST` | `/api/v1/webhooks/razorpay` | Razorpay webhook ingress with HMAC-SHA256 verification. |
 
 ---
 
-## 11. License
+## Security & Compliance Safeguards
+
+* **Isolated Credentials**: All API keys, secrets, and bot tokens reside in server-side environment variables and are never bundled with frontend client assets.
+* **PII Masking**: Customer contact details and Telegram chat IDs are masked across API responses (`6*******4` and `+91 98****3210`).
+* **Non-Coercive Outreach**: Communications respect customer cancellation signals, enforce dunning pauses, and cease outreach upon payment confirmation.
+* **Cryptographic Tamper-Evidence**: Incident audit logs are linked using SHA-256 hashing to preserve a verifiable record of automated actions.
+
+---
+
+## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

@@ -140,9 +140,7 @@ export const AIDebriefModal: React.FC<AIDebriefModalProps> = ({
               <option value="claude-web/claude-opus-5">claude-web/claude-opus-5</option>
               <option value="chatgpt-web/gpt-5.6-pro">chatgpt-web/gpt-5.6-pro</option>
               <option value="deepseek-web/deepseek-v4-pro-think">deepseek-web/deepseek-v4-pro-think</option>
-              <option value="cline/anthropic/claude-opus-4.8">cline/anthropic/claude-opus-4.8</option>
-              <option value="codex/gpt-5.6-terra-ultra">codex/gpt-5.6-terra-ultra</option>
-              <option value="kiro/qwen3-coder-next">kiro/qwen3-coder-next</option>
+              <option value="research-combo">research-combo</option>
             </select>
           </div>
 

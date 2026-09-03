@@ -32,6 +32,8 @@ class Settings(BaseSettings):
     OMNIROUTE_BASE_URL: str = "http://127.0.0.1:20128/v1"
     OMNIROUTE_API_KEY: str = ""
     OMNIROUTE_MODEL: str = "github/gpt-4o-mini"
+    OMNIROUTE_COMBO: str = ""
+    APP_HOST_URL: str = "http://192.168.1.37:8000"
 
     class Config:
         env_file = str(ENV_PATH)

@@ -68,7 +68,10 @@ class TelegramListener:
 
             logger.info(f"Received Telegram callback: {data}")
 
-            if data.startswith("cancel:"):
+            if data.startswith("pay:") or data.startswith("paid:"):
+                incident_id = data.split(":", 1)[1]
+                await self.handle_pay(incident_id, chat_id, msg_id, cb_id)
+            elif data.startswith("cancel:"):
                 incident_id = data.split(":", 1)[1]
                 await self.handle_cancel(incident_id, chat_id, msg_id, cb_id)
             elif data.startswith("ptp:"):
@@ -208,6 +211,55 @@ class TelegramListener:
                 await telegram_service.edit_message(chat_id=chat_id, message_id=msg_id, text=alt_text, reply_markup=None)
                 await telegram_service.answer_callback_query(cb_id, text="Switched to alternative rail!")
 
+    async def handle_pay(self, incident_id: str, chat_id: str, msg_id: int, cb_id: str):
+        """Handle 1-tap payment callback on Telegram."""
+        async with async_session_factory() as db:
+            res = await db.execute(select(RecoveryIncident).where(RecoveryIncident.id == incident_id))
+            inc = res.scalars().first()
+            if inc:
+                pay_amount = inc.original_amount
+                pay_id = f"pay_tg_{uuid.uuid4().hex[:8]}"
+                inc.status = "recovered"
+                inc.recovered_amount = pay_amount
+                inc.razorpay_payment_id = pay_id
+                inc.stopping_rule_triggered = f"SUCCESS_STOP: Payment of ₹{pay_amount:,.2f} verified on Razorpay ({pay_id})."
+
+                stmt = select(AuditLog).where(AuditLog.incident_id == inc.id).order_by(AuditLog.id.desc()).limit(1)
+                last_log = (await db.execute(stmt)).scalars().first()
+                prev_hash = last_log.event_hash if last_log else "GENESIS"
+
+                audit = AuditLog(
+                    incident_id=inc.id,
+                    agent_name="Telegram_Listener",
+                    event_type="RECOVERY_VERIFIED",
+                    details=f"Payment verified for ₹{pay_amount:,.2f} on Telegram. Dunning terminated.",
+                    compliance_rule="Instant Cessation of Dunning upon Debt Satisfaction",
+                    event_hash=AuditLog.generate_hash(prev_hash, inc.id, "RECOVERY_VERIFIED", str(pay_amount))
+                )
+                db.add(audit)
+                await db.commit()
+
+                text = (
+                    f"🎉 <b>Payment Captured via NetBanking!</b>\n\n"
+                    f"Order: <b>{inc.id}</b>\n"
+                    f"Customer: <b>{inc.customer_name}</b>\n"
+                    f"Amount Paid: <b>₹{pay_amount:,.2f}</b>\n"
+                    f"Payment ID: <code>{pay_id}</code>\n\n"
+                    f"🛡️ <b>Stopping Rule Triggered:</b> Debt satisfied. All reminders and dunning terminated."
+                )
+                keyboard = {
+                    "inline_keyboard": [
+                        [{"text": f"✅ Paid ₹{pay_amount:,.2f} (Confirmed)", "callback_data": f"paid:{inc.id}"}]
+                    ]
+                }
+                await telegram_service.edit_message(
+                    chat_id=chat_id,
+                    message_id=msg_id,
+                    text=text,
+                    reply_markup=keyboard
+                )
+                await telegram_service.answer_callback_query(cb_id, text=f"Payment of ₹{pay_amount:,.2f} confirmed!")
+
     async def handle_customer_ai_chat(self, chat_id: str, first_name: str, user_text: str):
         """Invoke OmniRoute AI Copilot to address customer query with active incident context."""
         try:
@@ -233,10 +285,12 @@ class TelegramListener:
                 )
 
                 keyboard = None
-                if inc and inc.payment_link_url and inc.status != "recovered":
+                if inc and inc.status != "recovered":
+                    host = os.getenv("APP_HOST_URL", "http://192.168.1.37:8000")
+                    checkout_url = inc.payment_link_url if (inc.payment_link_url and "localhost" not in inc.payment_link_url) else f"{host}/pay/{inc.id}"
                     keyboard = {
                         "inline_keyboard": [
-                            [{"text": "💳 Complete Razorpay Payment", "url": inc.payment_link_url}],
+                            [{"text": f"💳 Complete Payment (₹{inc.original_amount:,.0f})", "url": checkout_url}],
                             [{"text": "🛑 Stop Reminders", "callback_data": f"cancel:{inc.id}"}]
                         ]
                     }

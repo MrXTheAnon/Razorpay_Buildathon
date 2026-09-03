@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 from typing import Dict, Any, Optional
@@ -99,9 +100,11 @@ class CrossBorderDeclineAgent(BaseRecoveryAgent):
                 f"Once toggled, complete your checkout below, or choose an alternative rail:"
             )
 
+            host = os.getenv("APP_HOST_URL", "http://192.168.1.37:8000")
+            checkout_url = incident.payment_link_url if (incident.payment_link_url and "localhost" not in incident.payment_link_url) else f"{host}/pay/{incident.id}"
             keyboard = {
                 "inline_keyboard": [
-                    [{"text": "💳 Complete Card Checkout", "url": incident.payment_link_url}],
+                    [{"text": "💳 Complete Card Checkout", "url": checkout_url}],
                     [{"text": "🌐 Switch to Alternative Rail (PayPal)", "callback_data": f"alt_rail:{incident.id}"}],
                     [{"text": "❌ Cancel Transaction", "callback_data": f"cancel:{incident.id}"}]
                 ]

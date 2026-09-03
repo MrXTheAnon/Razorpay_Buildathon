@@ -16,7 +16,7 @@ class OmniRouteAIService:
     def __init__(self):
         # Default to local OmniRoute gateway
         self.base_url = os.getenv("OMNIROUTE_BASE_URL", "http://127.0.0.1:20128/v1")
-        self.api_key = os.getenv("OMNIROUTE_API_KEY", "")
+        self.api_key = os.getenv("OMNIROUTE_API_KEY", "") or getattr(settings, "OMNIROUTE_API_KEY", "")
         self.model = os.getenv("OMNIROUTE_MODEL", "github/gpt-4o-mini")
         self.timeout = 15.0
 
@@ -34,6 +34,9 @@ class OmniRouteAIService:
             "max_tokens": max_tokens,
             "stream": False
         }
+        if self.model == "research-combo":
+            headers["x-combo"] = "research-combo"
+            payload["combo"] = "research-combo"
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
                 resp = await client.post(url, json=payload, headers=headers)
@@ -78,22 +81,46 @@ class OmniRouteAIService:
         conversation_history: Optional[List[Dict[str, str]]] = None
     ) -> str:
         """
-        Interactive Copilot: Answers customer queries on Telegram regarding their payment failure,
-        split options, bank downtime, or alternative rails in natural language.
+        Interactive Copilot: Answers customer queries on Telegram regarding their payment status,
+        failure causes, split options, bank downtime, or alternative rails in natural language.
         """
+        status = incident_context.get("status", "intervened")
+        is_recovered = (status == "recovered")
+        recovered_amt = incident_context.get("recovered_amount") or incident_context.get("original_amount", 0)
+        pay_id = incident_context.get("razorpay_payment_id") or "pay_verified"
+        root_cause = incident_context.get("root_cause", "Temporary network issue")
+        extra_data = incident_context.get("extra_data") or {}
+        issuer_bank = extra_data.get("issuer_bank", "your bank")
+
+        if is_recovered:
+            status_directives = (
+                f"PAYMENT STATUS: ✅ SUCCEEDED & SETTLED (RECOVERED)\n"
+                f"- Amount Paid: ₹{recovered_amt:,.2f}\n"
+                f"- Payment Reference: {pay_id}\n"
+                f"- CRITICAL: If the customer asks if their payment went through, was received, or succeeded, "
+                f"ANSWER YES IMMEDIATELY! Confirm their payment of ₹{recovered_amt:,.2f} (Ref: {pay_id}) was successfully captured and verified. "
+                f"Reassure them that their transaction is complete and their order is safe. DO NOT say it was declined or failed!\n"
+            )
+        else:
+            status_directives = (
+                f"PAYMENT STATUS: ⚠️ PENDING RECOVERY (NOT YET PAID)\n"
+                f"- Original Amount: ₹{incident_context.get('original_amount', 0):,.2f}\n"
+                f"- Root Cause: {root_cause}\n"
+                f"- Bank: {issuer_bank}\n"
+                f"- Reassure the customer that ₹0 has been debited or lost.\n"
+                f"- If they ask why it was declined, explain politely (e.g. RBI international toggle for cross-border cards, or temporary bank downtime).\n"
+                f"- If they ask about installments, offer to split into 2 installments (50% now, 50% in 15 days).\n"
+                f"- If they ask to cancel, confirm that reminders are halted immediately.\n"
+            )
+
         system_prompt = (
-            "You are RazorLoop AI, an autonomous, polite, and reassuring payment recovery assistant for Razorpay merchants.\n"
-            "Your goal is to help customers whose payments faced an issue, strictly adhering to the RBI Fair Practice Code.\n"
+            "You are RazorLoop AI, an autonomous, empathetic, and professional payment assistant for Razorpay merchants.\n"
+            "Your responses must strictly match the REAL-TIME transaction status below.\n\n"
+            f"{status_directives}\n"
             "Rules:\n"
-            "1. Be concise, respectful, empathetic, and professional (max 3-4 sentences).\n"
-            "2. Never use debt-collector aggression. Always reassure them if zero debit occurred.\n"
-            "3. If they ask about installments, explain that we can split into 2 tranches (50% now, 50% in 15 days).\n"
-            "4. If they ask why an international card failed, explain RBI directives mandate international e-commerce is toggled OFF by default on Indian cards and can be enabled in their bank app in 30 seconds.\n"
-            "5. If they ask to cancel or stop messages, acknowledge politely that automated reminders are halted immediately.\n"
-            f"Active Context: Customer={customer_name}, Track={incident_context.get('track')}, "
-            f"Amount=₹{incident_context.get('original_amount', 0):,.0f}, "
-            f"Root Cause={incident_context.get('root_cause', 'Unknown')}, "
-            f"Payment URL={incident_context.get('payment_link_url', 'Active in system')}"
+            "1. Be concise, respectful, and courteous (max 2-3 sentences).\n"
+            "2. Never contradict the real-time payment status.\n"
+            f"Active Context: Customer={customer_name}, Track={incident_context.get('track')}, Status={status}"
         )
 
         messages = [{"role": "system", "content": system_prompt}]
@@ -101,15 +128,20 @@ class OmniRouteAIService:
             messages.extend(conversation_history[-4:])
         messages.append({"role": "user", "content": user_message})
 
-        response = await self._call_llm(messages, temperature=0.3, max_tokens=250)
+        response = await self._call_llm(messages, temperature=0.2, max_tokens=200)
         if response:
             return response
 
-        # Fallback heuristic
+        # Fallback heuristic based on real status
+        if is_recovered:
+            return (
+                f"Hello {customer_name}! Yes, your payment of ₹{recovered_amt:,.2f} was successfully captured "
+                f"and confirmed (Ref: {pay_id}). No further action is required!"
+            )
         return (
             f"Hello {customer_name}, I understand your query. Your transaction of "
-            f"₹{incident_context.get('original_amount', 0):,.0f} encountered a temporary gateway issue. "
-            f"No funds have been lost. You can securely complete it via your Razorpay link or reply with any questions."
+            f"₹{incident_context.get('original_amount', 0):,.0f} encountered a temporary issue ({root_cause}). "
+            f"No funds were debited from your account. You can securely complete it via the payment link or reply with any questions."
         )
 
     async def synthesize_reassurance_copy(
@@ -176,35 +208,54 @@ class OmniRouteAIService:
         roi_multiplier: float,
         incident_count: int,
         track_breakdown: List[Dict[str, Any]],
-        bank_telemetry: List[Dict[str, Any]]
+        bank_telemetry: List[Dict[str, Any]],
+        sample_cases: Optional[List[Dict[str, Any]]] = None
     ) -> Dict[str, Any]:
         """
         Generates a boardroom-level AI Executive Debrief analyzing portfolio recovery health,
-        root-cause clustering, and payment gateway routing recommendations.
+        root-cause clustering, and payment gateway routing recommendations grounded in live database incidents.
         """
+        if incident_count == 0:
+            return {
+                "executive_summary": "Telemetry Standby: 0 payment incidents currently in ledger session. Awaiting transaction failure signals.",
+                "systemic_findings": [
+                    "Telemetry Standby: No active payment drop-offs or dispute events detected across payment switches.",
+                    "Issuer Health Switches: Core bank telemetry (HDFC, SBI, ICICI, AXIS) actively monitored and operational.",
+                    "Autonomous Interventions Idle: Recovery agents primed to intercept and resolve failures upon trigger."
+                ],
+                "gateway_recommendations": [
+                    "Click 'Inject Batch (20 Cases)' in the top navbar to simulate production failure telemetry.",
+                    "Test individual payment tracks below to inspect autonomous agent intervention logic.",
+                    "OmniRoute will automatically synthesize systemic findings from live incident telemetry once injected."
+                ]
+            }
+
         prompt = (
-            f"Analyze this Razorpay recovery portfolio telemetry:\n"
-            f"- Total At-Risk: ₹{total_at_risk:,.0f}\n"
-            f"- Total Won Back: ₹{total_recovered:,.0f} ({recovery_rate:.1f}% Recovery Yield)\n"
+            f"Analyze this live Razorpay autonomous recovery portfolio telemetry:\n"
+            f"- Total In Jeopardy (At-Risk): ₹{total_at_risk:,.0f}\n"
+            f"- Total Capital Secured (Won Back): ₹{total_recovered:,.0f} ({recovery_rate:.1f}% Recovery Yield)\n"
             f"- Net Recovery ROI: {roi_multiplier:.0f}x baseline\n"
             f"- Total Incidents Evaluated: {incident_count}\n"
-            f"- Track Performance: {json.dumps(track_breakdown)}\n"
-            f"- Issuer Bank Telemetry: {json.dumps(bank_telemetry)}\n\n"
-            "Output a JSON object adhering STRICTLY to this format:\n"
+            f"- Track Breakdown: {json.dumps(track_breakdown)}\n"
+            f"- Live Bank Switch Telemetry: {json.dumps(bank_telemetry)}\n"
+            f"- Actual Incident Samples From Live Database: {json.dumps(sample_cases or [])}\n\n"
+            "TASK:\n"
+            "Synthesize genuine systemic findings and actionable gateway optimizations strictly based on the ACTUAL failures and bank statuses above.\n"
+            "Output pure JSON adhering to this schema:\n"
             "{\n"
-            "  \"executive_summary\": \"Write 2-3 full sentences summarizing capital efficiency, recovery yield, and high-impact interventions.\",\n"
+            "  \"executive_summary\": \"2-3 detailed sentences analyzing portfolio yield, capital efficiency, and key agent interventions.\",\n"
             "  \"systemic_findings\": [\n"
-            "    \"Finding 1 regarding UPI app-switch drop-off patterns and zero-debit reassurance.\",\n"
-            "    \"Finding 2 regarding core banking maintenance (SBI/NPCI) and degradation.\",\n"
-            "    \"Finding 3 regarding B2B Section 194C TDS withholding or international cards.\"\n"
+            "    \"Specific observation referencing actual failure reasons or bank switches found in telemetry\",\n"
+            "    \"Specific observation referencing actual B2B or mandate failure causes in the dataset\",\n"
+            "    \"Specific observation referencing UPI or cross-border drop-off patterns\"\n"
             "  ],\n"
             "  \"gateway_recommendations\": [\n"
-            "    \"Recommendation 1 for automated mandate rescheduling to 06:30 AM.\",\n"
-            "    \"Recommendation 2 for Net Smart Collect Virtual Accounts.\",\n"
-            "    \"Recommendation 3 for 1-tap mobile issuer toggle guidance.\"\n"
+            "    \"Specific gateway routing rule based on the data\",\n"
+            "    \"Specific operational improvement for the highest-variance track\",\n"
+            "    \"Specific retry policy or customer reassurance protocol\"\n"
             "  ]\n"
             "}\n"
-            "CRITICAL: executive_summary must be a single string. systemic_findings and gateway_recommendations must each contain at least 3 descriptive bullet points. Output ONLY valid JSON."
+            "CRITICAL: Ground all findings in the actual failure causes and bank telemetry provided."
         )
         messages = [
             {"role": "system", "content": "You are a Chief Payments Officer and Principal Fintech Infrastructure Architect. Respond in pure JSON without markdown."},
@@ -269,16 +320,22 @@ class OmniRouteAIService:
                         clean_recs.append(str(recs))
 
                     if len(clean_findings) < 2:
-                        clean_findings = [
-                            "UPI app-switch latency during peak checkout drove 42% of abandoned mobile carts with zero issuer debit.",
-                            "NPCI evening maintenance windows (8-11 PM) caused recurring autopay batch failures across State Bank of India.",
-                            "Enterprise AP departments routinely withheld 2.0% TDS under Section 194C, stalling high-value B2B invoices."
-                        ]
+                        if sample_cases:
+                            clean_findings = [
+                                f"{c.get('track', 'Payment')}: {c.get('root_cause')} ({c.get('customer')})"
+                                for c in sample_cases[:3]
+                            ]
+                        else:
+                            clean_findings = [
+                                f"Autonomous recovery agents actively processing {incident_count} evaluated transactions.",
+                                f"Core banking telemetry verified across {len(bank_telemetry)} major issuer switches.",
+                                "Zero un-halted dunning: Hard stopping rules executed on debt satisfaction."
+                            ]
                     if len(clean_recs) < 2:
                         clean_recs = [
                             "Enforce dynamic 06:30 AM mandate rescheduling to bypass core banking maintenance throttles.",
                             "Automate Net Smart Collect Virtual Account generation for invoice disputes with <=5% variance.",
-                            "Deploy instant 1-tap HDFC/ICICI mobile app toggle guides for international e-commerce card declines."
+                            "Deploy instant 1-tap mobile bank unlock guidance for international e-commerce card declines."
                         ]
 
                     return {
@@ -289,22 +346,29 @@ class OmniRouteAIService:
             except Exception as e:
                 logger.warning(f"Failed to parse OmniRoute JSON debrief: {e}")
 
-        # High quality heuristic fallback
+        # High quality heuristic fallback grounded in sample_cases
+        dynamic_findings = []
+        if sample_cases:
+            for c in sample_cases[:3]:
+                dynamic_findings.append(f"{c.get('track', 'Payment')}: {c.get('root_cause')} ({c.get('customer')})")
+        if not dynamic_findings:
+            dynamic_findings = [
+                f"Evaluated {incident_count} transaction failures across live rails.",
+                "Real-time bank telemetry confirms automated retry suppression active.",
+                "Deterministic stopping rules halted dunning immediately upon payment capture."
+            ]
+
         return {
             "executive_summary": (
                 f"RazorLoop evaluated {incident_count} at-risk payment incidents totaling ₹{total_at_risk:,.0f}, "
                 f"successfully securing ₹{total_recovered:,.0f} at an optimal {recovery_rate:.1f}% recovery yield. "
                 f"Autonomous intervention generated a {roi_multiplier:.0f}x return over baseline dunning overhead."
             ),
-            "systemic_findings": [
-                "UPI app-switch latency during peak checkout drove 42% of abandoned mobile carts with zero issuer debit.",
-                "NPCI evening maintenance windows (8-11 PM) caused recurring autopay batch failures across State Bank of India.",
-                "Enterprise AP departments routinely withheld 2.0% TDS under Section 194C, stalling high-value B2B invoices."
-            ],
+            "systemic_findings": dynamic_findings,
             "gateway_recommendations": [
                 "Enforce dynamic 06:30 AM mandate rescheduling to bypass core banking maintenance throttles.",
                 "Automate Net Smart Collect Virtual Account generation for invoice disputes with <=5% variance.",
-                "Deploy instant 1-tap HDFC/ICICI mobile app toggle guides for international e-commerce card declines."
+                "Deploy instant 1-tap mobile bank unlock guidance for international e-commerce card declines."
             ]
         }
 

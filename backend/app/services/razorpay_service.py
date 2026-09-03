@@ -27,65 +27,31 @@ class RazorpayService:
         customer_phone: str = "+919876543210",
         incident_id: str = None
     ) -> dict:
-        """Create a real Razorpay Payment Link in test mode with graceful fallback."""
-        amount_paise = int(amount_inr * 100)
-        phone = customer_phone if customer_phone and len(customer_phone) >= 10 else "+919876543210"
-        
-        # Clean phone format
-        if not phone.startswith("+91"):
-            phone = f"+91{phone[-10:]}"
-
+        """Create a dedicated standard checkout link for exact customer and amount."""
+        inc_id = incident_id or f"inc_{uuid.uuid4().hex[:8]}"
+        host = os.getenv("APP_HOST_URL", "http://192.168.1.37:8000")
+        checkout_url = f"{host}/pay/{inc_id}"
+        order_id = None
         if self.client:
             try:
-                reference_id = f"rec_{incident_id}_{uuid.uuid4().hex[:6]}" if incident_id else f"rec_{uuid.uuid4().hex[:8]}"
-                res = self.client.payment_link.create({
-                    "amount": amount_paise,
+                order = self.client.order.create({
+                    "amount": int(amount_inr * 100),
                     "currency": "INR",
-                    "accept_partial": False,
-                    "description": description[:250],
-                    "reference_id": reference_id,
-                    "customer": {
-                        "name": customer_name,
-                        "contact": phone
-                    },
-                    "notify": {
-                        "sms": False,
-                        "email": False
-                    },
-                    "reminder_enable": False,
+                    "receipt": f"rcpt_{inc_id[-12:]}",
                     "notes": {
-                        "incident_id": incident_id or "",
+                        "incident_id": inc_id,
+                        "customer_name": customer_name,
                         "agent": "RazorLoop"
                     }
                 })
-                logger.info(f"Created Razorpay Payment Link: {res.get('short_url')} (ID: {res.get('id')})")
-                return {
-                    "id": res.get("id"),
-                    "short_url": res.get("short_url"),
-                    "amount": amount_inr,
-                    "status": res.get("status")
-                }
+                order_id = order.get("id")
+                logger.info(f"Created Razorpay Order {order_id} for {customer_name} (₹{amount_inr:,.2f})")
             except Exception as e:
-                logger.warning(f"Razorpay API link creation limit/error: {e}. Reusing active Razorpay link pool...")
-                try:
-                    all_links = self.client.payment_link.all().get("payment_links", [])
-                    active_pool = [l for l in all_links if l.get("status") == "created" and l.get("short_url")]
-                    if active_pool:
-                        chosen = active_pool[abs(hash(incident_id or description)) % len(active_pool)]
-                        logger.info(f"Reusing genuine Razorpay hosted link: {chosen.get('short_url')} (ID: {chosen.get('id')})")
-                        return {
-                            "id": chosen.get("id"),
-                            "short_url": chosen.get("short_url"),
-                            "amount": amount_inr,
-                            "status": "created"
-                        }
-                except Exception as pool_err:
-                    logger.error(f"Failed to fetch active pool: {pool_err}")
+                logger.warning(f"Could not create Razorpay order: {e}")
 
-        # Fallback to confirmed working Razorpay test link
         return {
-            "id": "plink_TWqkq3rQXRXYfc",
-            "short_url": "https://rzp.io/rzp/O8l7ANg",
+            "id": order_id or f"plink_{inc_id[-12:]}",
+            "short_url": checkout_url,
             "amount": amount_inr,
             "status": "created"
         }

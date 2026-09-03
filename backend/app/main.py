@@ -58,8 +58,21 @@ async def shutdown_event():
         except (asyncio.CancelledError, asyncio.TimeoutError, Exception):
             pass
 
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+DIST_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
+if os.path.exists(DIST_DIR):
+    assets_dir = os.path.join(DIST_DIR, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
 @app.get("/")
 async def root():
+    index_file = os.path.join(DIST_DIR, "index.html")
+    if os.path.exists(index_file):
+        return FileResponse(index_file)
     return {
         "app": settings.PROJECT_NAME,
         "version": settings.VERSION,
@@ -71,3 +84,13 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "ok", "telegram_polling": telegram_listener.is_running}
+
+@app.get("/api/status")
+async def api_status():
+    return {
+        "app": settings.PROJECT_NAME,
+        "version": settings.VERSION,
+        "track": "Track 03: AI Revenue Recovery",
+        "docs": "/docs",
+        "status": "healthy"
+    }

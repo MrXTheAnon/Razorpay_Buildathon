@@ -1,3 +1,4 @@
+import os
 import asyncio
 import logging
 from typing import Optional, Dict, Any, List
@@ -81,6 +82,33 @@ class TelegramService:
                 logger.error(f"Failed to edit Telegram message: {e}")
                 return False
 
+    async def edit_reply_markup(
+        self,
+        chat_id: str,
+        message_id: int,
+        reply_markup: Optional[Dict[str, Any]] = None
+    ) -> bool:
+        """Edit the inline keyboard of an existing Telegram message without altering text."""
+        target_chat = chat_id or self.default_chat_id
+        if not self.bot_token or not target_chat or not message_id:
+            return False
+
+        payload: Dict[str, Any] = {
+            "chat_id": target_chat,
+            "message_id": message_id
+        }
+        if reply_markup is not None:
+            payload["reply_markup"] = reply_markup
+
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            try:
+                resp = await client.post(f"{self.base_url}/editMessageReplyMarkup", json=payload)
+                data = resp.json()
+                return bool(data.get("ok"))
+            except Exception as e:
+                logger.error(f"Failed to edit Telegram reply markup: {e}")
+                return False
+
     async def answer_callback_query(self, callback_query_id: str, text: str = ""):
         """Acknowledge a Telegram button click."""
         async with httpx.AsyncClient(timeout=5.0) as client:
@@ -94,9 +122,11 @@ class TelegramService:
 
     def build_in_flight_keyboard(self, incident_id: str, payment_url: str, amount: float) -> Dict[str, Any]:
         """Build inline keyboard for in-flight UPI drop-off."""
+        host = os.getenv("APP_HOST_URL", "http://192.168.1.37:8000")
+        checkout_url = payment_url if (payment_url and "localhost" not in payment_url) else f"{host}/pay/{incident_id}"
         buttons = [
             [
-                {"text": f"💳 Complete via Razorpay (₹{amount:,.0f})", "url": payment_url}
+                {"text": f"💳 Complete via Razorpay (₹{amount:,.0f})", "url": checkout_url}
             ],
             [
                 {"text": "🔄 Split into 2 Installments (PTP)", "callback_data": f"ptp:{incident_id}"},
@@ -109,7 +139,7 @@ class TelegramService:
         """Build inline keyboard for B2B dispute resolution."""
         buttons = [
             [
-                {"text": f"🏦 Pay Net ₹{net_amount:,.0f} via Smart Collect", "url": f"https://rzp.io/l/demo"}
+                {"text": f"🏦 Pay Net ₹{net_amount:,.2f} (Smart Collect)", "callback_data": f"pay:{incident_id}"}
             ],
             [
                 {"text": "📑 Accept Adjusted TDS Credit Note", "callback_data": f"accept_cn:{incident_id}"},

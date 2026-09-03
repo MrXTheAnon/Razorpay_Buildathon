@@ -24,7 +24,7 @@ export const App: React.FC = () => {
   const [isAIDebriefOpen, setIsAIDebriefOpen] = useState(false);
   const [aiDebrief, setAiDebrief] = useState<any>(null);
   const [isAIDebriefLoading, setIsAIDebriefLoading] = useState(false);
-  const [aiModelName, setAiModelName] = useState('OmniRoute (github/gpt-4o-mini)');
+  const [aiModelName, setAiModelName] = useState('github/gpt-4o-mini');
   const [userChatId, setUserChatId] = useState('');
   const [isLiveSync, setIsLiveSync] = useState(true);
 
@@ -125,35 +125,40 @@ export const App: React.FC = () => {
   };
 
   // Open & Generate OmniRoute AI Executive Debrief
-  const handleOpenAIDebrief = async (chosenModel?: string) => {
+  const handleOpenAIDebrief = async (chosenModel?: any) => {
     setIsAIDebriefOpen(true);
     setIsAIDebriefLoading(true);
-    const targetModel = chosenModel || aiModelName;
-    if (chosenModel) setAiModelName(chosenModel);
+    const isValidString = typeof chosenModel === 'string' && chosenModel.trim() !== '' && !chosenModel.includes('object Object');
+    const targetModel = isValidString ? chosenModel : (aiModelName || 'github/gpt-4o-mini');
+    if (isValidString) {
+      setAiModelName(chosenModel);
+    }
     try {
       const res = await fetch(`/api/v1/recovery/ai-executive-debrief?model=${encodeURIComponent(targetModel)}`, {
         method: 'POST',
       });
       if (res.ok) {
         const data = await res.json();
-        setAiDebrief(data.debrief);
+        if (data.debrief && data.debrief.executive_summary) {
+          setAiDebrief(data.debrief);
+        }
         if (data.model) setAiModelName(data.model);
       }
     } catch (e) {
-      console.error('Error generating AI debrief:', e);
+      console.error('Error fetching AI debrief:', e);
     } finally {
       setIsAIDebriefLoading(false);
     }
   };
 
-  // 1. Inject Batch (25 cases)
+  // 1. Inject Batch (20 cases)
   const handleInjectBatch = async () => {
     setIsBatchRunning(true);
     try {
       const res = await fetch('/api/v1/recovery/batch-simulate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ count: 25 }),
+        body: JSON.stringify({ count: 20 }),
       });
       if (res.ok) {
         await fetchLedger();

@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 from typing import Dict, Any, Optional
@@ -62,10 +63,12 @@ class PTPAgent(BaseRecoveryAgent):
             f"⏳ <b>Status:</b> All automated dunning paused until the promised date."
         )
 
+        host = os.getenv("APP_HOST_URL", "http://192.168.1.37:8000")
+        checkout_url = plink.get("short_url") if (plink.get("short_url") and "localhost" not in plink.get("short_url")) else f"{host}/pay/{incident.id}"
         keyboard = {
             "inline_keyboard": [
                 [
-                    {"text": f"💳 Pay Tranche 1 (₹{half_amount:,.0f})", "url": plink.get("short_url")}
+                    {"text": f"💳 Pay Tranche 1 (₹{half_amount:,.2f})", "url": checkout_url}
                 ],
                 [
                     {"text": "❌ Cancel Order", "callback_data": f"cancel:{incident.id}"}
