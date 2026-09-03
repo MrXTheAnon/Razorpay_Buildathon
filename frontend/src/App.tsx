@@ -125,11 +125,13 @@ export const App: React.FC = () => {
   };
 
   // Open & Generate OmniRoute AI Executive Debrief
-  const handleOpenAIDebrief = async () => {
+  const handleOpenAIDebrief = async (chosenModel?: string) => {
     setIsAIDebriefOpen(true);
     setIsAIDebriefLoading(true);
+    const targetModel = chosenModel || aiModelName;
+    if (chosenModel) setAiModelName(chosenModel);
     try {
-      const res = await fetch('/api/v1/recovery/ai-executive-debrief', {
+      const res = await fetch(`/api/v1/recovery/ai-executive-debrief?model=${encodeURIComponent(targetModel)}`, {
         method: 'POST',
       });
       if (res.ok) {

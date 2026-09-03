@@ -267,8 +267,14 @@ async def reset_ledger(db: AsyncSession = Depends(get_db)):
     return {"status": "success", "message": "Ledger wiped. Fresh start ready."}
 
 @router.post("/ai-executive-debrief")
-async def get_ai_executive_debrief(db: AsyncSession = Depends(get_db)):
+async def get_ai_executive_debrief(
+    model: Optional[str] = Query(None),
+    db: AsyncSession = Depends(get_db)
+):
     """Generate live executive portfolio debrief via OmniRoute AI Gateway."""
+    if model:
+        omniroute_ai_service.model = model
+
     stmt = select(
         func.count(RecoveryIncident.id),
         func.sum(RecoveryIncident.original_amount),

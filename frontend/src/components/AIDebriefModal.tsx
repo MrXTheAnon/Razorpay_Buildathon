@@ -12,8 +12,8 @@ interface AIDebriefModalProps {
   onClose: () => void;
   debrief: AIDebriefData | null;
   isLoading: boolean;
-  onRefresh: () => void;
-  modelName?: string;
+  onRefresh: (model?: string) => void;
+  modelName: string;
 }
 
 export const AIDebriefModal: React.FC<AIDebriefModalProps> = ({
@@ -22,7 +22,7 @@ export const AIDebriefModal: React.FC<AIDebriefModalProps> = ({
   debrief,
   isLoading,
   onRefresh,
-  modelName = 'OmniRoute Gateway (github/gpt-4o-mini)',
+  modelName = 'github/gpt-4o-mini',
 }) => {
   if (!isOpen) return null;
 
@@ -125,13 +125,22 @@ export const AIDebriefModal: React.FC<AIDebriefModalProps> = ({
 
         {/* Footer */}
         <div className="p-4 border-t border-[#e5dec9] bg-[#fbf9f4] flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-[10px] font-mono text-stone-500">
-            <span>Model: <span className="font-semibold text-stone-800">{modelName}</span></span>
+          <div className="flex items-center gap-2 text-xs font-mono text-stone-600">
+            <span className="font-semibold text-stone-800">Model:</span>
+            <select
+              value={modelName}
+              onChange={(e) => onRefresh(e.target.value)}
+              disabled={isLoading}
+              className="bg-white border border-[#d6cfbe] text-stone-800 px-2.5 py-1 rounded-xl text-xs font-mono font-semibold cursor-pointer focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-xs"
+            >
+              <option value="github/gpt-4o-mini">github/gpt-4o-mini (Fast & Low Latency)</option>
+              <option value="github/gpt-4o-2024-11-20">github/gpt-4o (Flagship Frontier Model)</option>
+            </select>
           </div>
 
           <div className="flex items-center gap-2">
             <button
-              onClick={onRefresh}
+              onClick={() => onRefresh(modelName)}
               disabled={isLoading}
               className="px-3 py-1.5 rounded-xl cream-btn text-xs font-mono text-stone-700 font-semibold cursor-pointer disabled:opacity-50"
             >
