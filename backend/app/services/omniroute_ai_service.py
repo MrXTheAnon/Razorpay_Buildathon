@@ -207,6 +207,10 @@ class OmniRouteAIService:
                 parsed = json.loads(clean_json)
                 if isinstance(parsed, dict):
                     # Guarantee keys
+                    summary = parsed.get("executive_summary") or parsed.get("summary") or parsed.get("analysis")
+                    findings = parsed.get("systemic_findings") or parsed.get("findings") or parsed.get("observations")
+                    recs = parsed.get("gateway_recommendations") or parsed.get("recommendations") or parsed.get("actions")
+
                     if summary:
                         if isinstance(summary, dict):
                             summary_str = summary.get("text") or summary.get("overview") or (
