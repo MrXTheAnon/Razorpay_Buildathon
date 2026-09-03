@@ -25,7 +25,7 @@ export const LiveIncidentFeed: React.FC<LiveIncidentFeedProps> = ({ incidents })
       case 'recovered':
         return (
           <span className="flex items-center gap-1.5 text-[11px] font-mono font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" /> RECOVERED
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" /> RECOVERED (CONFIRMED)
           </span>
         );
       case 'halted':
