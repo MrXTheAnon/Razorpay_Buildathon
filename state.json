@@ -1,0 +1,4629 @@
+{
+  "stack": [
+    {
+      "category": "Locked Libraries & Stack",
+      "items": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest",
+        "pytest-asyncio",
+        "lucide-react",
+        "react",
+        "react-dom",
+        "@tailwindcss/vite",
+        "@vitejs/plugin-react",
+        "oxlint",
+        "tailwindcss",
+        "typescript",
+        "vite"
+      ]
+    }
+  ],
+  "todos": [
+    {
+      "id": "task-1",
+      "title": "This assert should not be needed.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.183Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/rewrite.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/assertion/rewrite.py"
+    },
+    {
+      "id": "task-2",
+      "title": "evaluate generating upward relative paths",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.187Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/cacheprovider.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/cacheprovider.py"
+    },
+    {
+      "id": "task-3",
+      "title": "This type error is real, need to fix.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.188Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/capture.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/capture.py"
+    },
+    {
+      "id": "task-4",
+      "title": "Type ignored -- breaks Liskov Substitution.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.193Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/doctest.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/doctest.py"
+    },
+    {
+      "id": "task-5",
+      "title": "ReprFileLocation doesn't expect a None lineno.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.193Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/doctest.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/doctest.py"
+    },
+    {
+      "id": "task-6",
+      "title": "Try to use FixtureFunctionDefinition instead of the marker",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.197Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+    },
+    {
+      "id": "task-7",
+      "title": "paramspec/return type annotation tracking and storing",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.197Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+    },
+    {
+      "id": "task-8",
+      "title": "The order of the FixtureDefs list of each arg is significant,",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.197Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+    },
+    {
+      "id": "task-9",
+      "title": "Handle the case where the super-fixture is transitively",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.197Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+    },
+    {
+      "id": "task-10",
+      "title": "Fix this type ignore.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.197Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+    },
+    {
+      "id": "task-11",
+      "title": "breaks for --dist=each",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.200Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/junitxml.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/junitxml.py"
+    },
+    {
+      "id": "task-12",
+      "title": "This assert is probably not valid in all cases.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.200Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/legacypath.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/legacypath.py"
+    },
+    {
+      "id": "task-13",
+      "title": "Remove the hacky split once the collection structure",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.202Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/main.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/main.py"
+    },
+    {
+      "id": "task-14",
+      "title": "Refactor to fix this type-ignore. Currently the following",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.203Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/mark/structures.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/mark/structures.py"
+    },
+    {
+      "id": "task-15",
+      "title": "This omits the style= parameter which breaks Liskov Substitution.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.205Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/nodes.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/nodes.py"
+    },
+    {
+      "id": "task-16",
+      "title": "Improve the type of `parent` such that assert/ignore aren't needed.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.209Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+    },
+    {
+      "id": "task-17",
+      "title": "If escaping is turned off and the user passes bytes,",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.209Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+    },
+    {
+      "id": "task-18",
+      "title": "this is a hell of a hack",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.209Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+    },
+    {
+      "id": "task-19",
+      "title": "determine sound type limitations",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.209Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+    },
+    {
+      "id": "task-20",
+      "title": "harmonize with ExceptionInfo.match",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.213Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/raises.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/raises.py"
+    },
+    {
+      "id": "task-21",
+      "title": "move common code into superclass",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.213Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/raises.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/raises.py"
+    },
+    {
+      "id": "task-22",
+      "title": "Check if this is actually reachable.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.214Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/reports.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/reports.py"
+    },
+    {
+      "id": "task-23",
+      "title": "Investigate whether the duck typing is really necessary here.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.214Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/reports.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/reports.py"
+    },
+    {
+      "id": "task-24",
+      "title": "Revisit after marks scope would be fixed.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.218Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/terminal.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/_pytest/terminal.py"
+    },
+    {
+      "id": "task-25",
+      "title": "Remove this method in Celery 6.0",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.265Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/utils.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/celery/app/utils.py"
+    },
+    {
+      "id": "task-26",
+      "title": "Remove the following code in Celery 6.0",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.265Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/celery/apps/worker.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/celery/apps/worker.py"
+    },
+    {
+      "id": "task-27",
+      "title": "Include this in connparams' definition once we drop",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.270Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/redis.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/celery/backends/redis.py"
+    },
+    {
+      "id": "task-28",
+      "title": "Potential bug of being a shallow copy",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.274Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/celery/canvas.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/celery/canvas.py"
+    },
+    {
+      "id": "task-29",
+      "title": "Not sure if this is still used anywhere (besides its own tests). Consider removing.",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.274Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/celery/canvas.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/celery/canvas.py"
+    },
+    {
+      "id": "task-30",
+      "title": "Use inspect.VALUE here, and make the annotations lazily evaluated",
+      "status": "todo",
+      "updatedAt": "2026-10-31T18:14:50.283Z",
+      "files": [
+        "razorpay_env/lib/python3.11/site-packages/typing_extensions.py"
+      ],
+      "notes": "Discovered in razorpay_env/lib/python3.11/site-packages/typing_extensions.py"
+    }
+  ],
+  "ledger": [
+    {
+      "heading": "Module: backend/__init__",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/__init__.py",
+        "backend/app/__init__.py",
+        "backend/app/api/__init__.py",
+        "backend/app/api/v1/__init__.py",
+        "backend/app/core/__init__.py",
+        "backend/app/models/__init__.py",
+        "backend/app/services/__init__.py",
+        "backend/app/agents/__init__.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/__init__.py, backend/app/__init__.py, backend/app/api/__init__.py, backend/app/api/v1/__init__.py, backend/app/core/__init__.py, backend/app/models/__init__.py, backend/app/services/__init__.py",
+        "Audited existing files: backend/__init__.py, backend/app/__init__.py, backend/app/agents/__init__.py, backend/app/api/__init__.py, backend/app/api/v1/__init__.py, backend/app/core/__init__.py, backend/app/models/__init__.py, backend/app/services/__init__.py"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/checkout",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/api/v1/checkout.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/api/v1/checkout.py",
+        "Implemented symbols/components: mock_razorpay_checkout"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/recovery",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/api/v1/recovery.py",
+        "backend/app/models/recovery.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/api/v1/recovery.py, backend/app/models/recovery.py",
+        "Implemented symbols/components: simulate_single_incident, batch_simulate, sync_paid_payment_links, list_incidents, get_recovery_metrics, get_audit_logs, mask_chat_id, mask_phone, to_dict, generate_hash"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/webhooks",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/api/v1/webhooks.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/api/v1/webhooks.py",
+        "Implemented symbols/components: razorpay_webhook"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/config",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/config.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/config.py"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/database",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/core/database.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/core/database.py",
+        "Implemented symbols/components: get_db, init_db"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/main",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/main.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/main.py",
+        "Implemented symbols/components: startup_event, shutdown_event, root, health, api_status"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/bank_health_service",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/services/bank_health_service.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/services/bank_health_service.py",
+        "Implemented symbols/components: __init__, get_bank_health, get_all_banks"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/omniroute_ai_service",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/services/omniroute_ai_service.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/services/omniroute_ai_service.py",
+        "Implemented symbols/components: __init__, _call_llm, chat_with_customer, synthesize_reassurance_copy, generate_b2b_dispute_memo, generate_executive_debrief"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/razorpay_service",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/services/razorpay_service.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/services/razorpay_service.py",
+        "Implemented symbols/components: __init__, create_payment_link, verify_webhook_signature, create_smart_collect_va"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/simulation_service",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/services/simulation_service.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/services/simulation_service.py",
+        "Implemented symbols/components: generate_unique_person_name, generate_unique_company_name, create_and_trigger_incident, run_batch_simulation"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/telegram_listener",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/services/telegram_listener.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/services/telegram_listener.py",
+        "Implemented symbols/components: __init__, start, stop, handle_update, handle_cancel, handle_ptp"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/telegram_service",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/app/services/telegram_service.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/services/telegram_service.py",
+        "Implemented symbols/components: __init__, send_message, edit_message, edit_reply_markup, answer_callback_query, build_in_flight_keyboard"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/test_recovery",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "backend/tests/test_recovery.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/tests/test_recovery.py",
+        "Implemented symbols/components: test_bank_telemetry, test_razorpay_service_init, test_batch_simulation"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/index",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/index.html",
+        "frontend/src/index.css"
+      ],
+      "summary": [
+        "Audited existing files: frontend/index.html, frontend/src/index.css"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/App",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de",
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/App.css",
+        "frontend/src/App.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/App.css, frontend/src/App.tsx",
+        "Implemented symbols/components: App"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/AIDebriefModal",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/AIDebriefModal.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/AIDebriefModal.tsx",
+        "Implemented symbols/components: AIDebriefModal"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/AgentLanes",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/AgentLanes.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/AgentLanes.tsx",
+        "Implemented symbols/components: AgentLanes"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/AuditModal",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/AuditModal.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/AuditModal.tsx",
+        "Implemented symbols/components: AuditModal"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/BankTelemetryBar",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/BankTelemetryBar.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/BankTelemetryBar.tsx",
+        "Implemented symbols/components: BankTelemetryBar"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/FinancialTicker",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/FinancialTicker.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/FinancialTicker.tsx",
+        "Implemented symbols/components: FinancialTicker"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/LiveIncidentFeed",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/LiveIncidentFeed.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/LiveIncidentFeed.tsx",
+        "Implemented symbols/components: LiveIncidentFeed"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/Navbar",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/Navbar.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/Navbar.tsx",
+        "Implemented symbols/components: Navbar"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/QRModal",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/components/QRModal.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/components/QRModal.tsx",
+        "Implemented symbols/components: QRModal"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/main",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/main.tsx"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/main.tsx"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/types",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/src/types.ts"
+      ],
+      "summary": [
+        "Audited existing files: frontend/src/types.ts"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: frontend/vite.config",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [
+        "Python",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "aiosqlite",
+        "razorpay",
+        "httpx",
+        "pytest"
+      ],
+      "filesTouched": [
+        "frontend/vite.config.ts"
+      ],
+      "summary": [
+        "Audited existing files: frontend/vite.config.ts"
+      ],
+      "updatedAt": "2026-10-31T18:25:25.300Z"
+    },
+    {
+      "heading": "Module: backend/b2b_dispute_agent",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "1c2f3b9"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "backend/app/agents/b2b_dispute_agent.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/agents/b2b_dispute_agent.py",
+        "Implemented symbols/components: __init__, diagnose, intervene, evaluate_stopping_rule"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: backend/base_agent",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "backend/app/agents/base_agent.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/agents/base_agent.py",
+        "Implemented symbols/components: __init__, diagnose, intervene, evaluate_stopping_rule, log_audit"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: backend/cross_border_agent",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "backend/app/agents/cross_border_agent.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/agents/cross_border_agent.py",
+        "Implemented symbols/components: __init__, diagnose, intervene, evaluate_stopping_rule"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: backend/mandate_healer_agent",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "f1812de"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "backend/app/agents/mandate_healer_agent.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/agents/mandate_healer_agent.py",
+        "Implemented symbols/components: __init__, diagnose, intervene, evaluate_stopping_rule"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: backend/ptp_agent",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "backend/app/agents/ptp_agent.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/agents/ptp_agent.py",
+        "Implemented symbols/components: __init__, diagnose, intervene, evaluate_stopping_rule"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: backend/upi_dropoff_agent",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "1c2f3b9"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "backend/app/agents/upi_dropoff_agent.py"
+      ],
+      "summary": [
+        "Audited existing files: backend/app/agents/upi_dropoff_agent.py",
+        "Implemented symbols/components: __init__, diagnose, intervene, evaluate_stopping_rule"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/__init__",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_distutils_hack/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_code/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_io/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_py/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/config/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_pytest/mark/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/_yaml/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/amqp/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/_backends/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/dummy/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/app/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/apps/__init__.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/__init__.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_distutils_hack/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/_code/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/_io/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/_py/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/assertion/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/config/__init__.py, razorpay_env/lib/python3.11/site-packages/_pytest/mark/__init__.py, razorpay_env/lib/python3.11/site-packages/_yaml/__init__.py, razorpay_env/lib/python3.11/site-packages/aiosqlite/__init__.py, razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/__init__.py, razorpay_env/lib/python3.11/site-packages/amqp/__init__.py, razorpay_env/lib/python3.11/site-packages/anyio/__init__.py, razorpay_env/lib/python3.11/site-packages/anyio/_backends/__init__.py, razorpay_env/lib/python3.11/site-packages/anyio/_core/__init__.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/__init__.py, razorpay_env/lib/python3.11/site-packages/anyio/streams/__init__.py, razorpay_env/lib/python3.11/site-packages/billiard/__init__.py, razorpay_env/lib/python3.11/site-packages/billiard/dummy/__init__.py, razorpay_env/lib/python3.11/site-packages/celery/__init__.py, razorpay_env/lib/python3.11/site-packages/celery/app/__init__.py, razorpay_env/lib/python3.11/site-packages/celery/apps/__init__.py, razorpay_env/lib/python3.11/site-packages/celery/backends/__init__.py",
+        "Implemented symbols/components: warn_distutils_present, clear_distutils, enabled, ensure_local_distutils, do_override, find_spec, pytest_addoption, pytest_configure, register_assert_rewrite, mark_rewrite, __init__, __str__, filter_traceback_for_conftest_import_failure, print_conftest_import_error, print_usage_error, _get_prog_name, param, test_eval, pytest_cmdline_main, from_item, __call__, __getattr__, ensure_multiprocessing, start, exitcode, active_children, freeze_support, debug_import, _find_option_with_arg, _patch_eventlet, _patch_gevent, maybe_patch_concurrency, bugreport, shared_task, add, create_shared_task, __inner, task_by_cons"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/override",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_distutils_hack/override.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_distutils_hack/override.py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_argcomplete",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_argcomplete.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_argcomplete.py",
+        "Implemented symbols/components: __init__, __call__, try_argcomplete"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/code",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_code/code.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_code/code.py",
+        "Implemented symbols/components: __init__, from_function, __eq__, firstlineno, name, path"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/source",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_code/source.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_code/source.py",
+        "Implemented symbols/components: __init__, __eq__, __getitem__, __iter__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pprint",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_io/pprint.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_io/pprint.py",
+        "Implemented symbols/components: __init__, __lt__, _safe_tuple, pformat, _format"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/saferepr",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_io/saferepr.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_io/saferepr.py",
+        "Implemented symbols/components: _try_repr_or_str, _format_repr_exception, _ellipsize, __init__, repr, repr_instance"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/terminalwriter",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_io/terminalwriter.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_io/terminalwriter.py",
+        "Implemented symbols/components: get_terminal_width, should_do_markup, __init__, fullwidth, width_of_current_line"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/wcwidth",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_io/wcwidth.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_io/wcwidth.py",
+        "Implemented symbols/components: wcwidth, wcswidth"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/error",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_py/error.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_py/error.py",
+        "Implemented symbols/components: __repr__, __str__, __getattr__, _geterrnoclass, checked_call"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/path",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_py/path.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_py/path.py",
+        "Implemented symbols/components: __init__, dotfile, ext, basename, basestarts, relto"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_version",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/_version.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/_version.py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_compare_any",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_any.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_any.py",
+        "Implemented symbols/components: _compare_eq_any, _compare_eq_cls"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_compare_mapping",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_mapping.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_mapping.py",
+        "Implemented symbols/components: _compare_eq_mapping"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_compare_sequence",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_sequence.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_sequence.py",
+        "Implemented symbols/components: _compare_eq_iterable, _compare_eq_sequence"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_compare_set",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_set.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_compare_set.py",
+        "Implemented symbols/components: _set_one_sided_diff, _compare_eq_set, _compare_gte_set, _compare_lte_set, _compare_gt_set, _compare_lt_set"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_guards",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_guards.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_guards.py",
+        "Implemented symbols/components: issequence, istext, ismapping, isset, isnamedtuple, isattrs"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_typing",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_typing.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/_typing.py",
+        "Implemented symbols/components: __call__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/compare_text",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/compare_text.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/compare_text.py",
+        "Implemented symbols/components: _compare_eq_text, _diff_text_block, _format_text_block_lines, _diff_text, _notin_text"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/highlight",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/highlight.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/highlight.py",
+        "Implemented symbols/components: dummy_highlighter"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/rewrite",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/rewrite.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/rewrite.py",
+        "Implemented symbols/components: __init__, set_session, find_spec, create_module, exec_module, _early_rewrite_bailout"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/truncate",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/truncate.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/truncate.py",
+        "Implemented symbols/components: truncate_if_required, _get_truncation_parameters, _truncate_explanation, _truncate_by_char_count"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/util",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/assertion/util.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/util.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/assertion/util.py, razorpay_env/lib/python3.11/site-packages/billiard/util.py",
+        "Implemented symbols/components: get_assertion_text_diff_style, validate_assertion_text_diff_style, format_explanation, _split_explanation, _format_lines, assertrepr_compare, _args_from_interpreter_flags, sub_debug, debug, info, sub_warning, warning"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/cacheprovider",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/cacheprovider.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/cacheprovider.py",
+        "Implemented symbols/components: _make_cachedir, __init__, for_config, clear_cache, cache_dir_from_config, warn"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/capture",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/capture.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/capture.py",
+        "Implemented symbols/components: pytest_addoption, _colorama_workaround, _readline_workaround, _windowsconsoleio_workaround, _reopen_stdio, pytest_load_initial_conftests"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/compat",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/compat.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/compat.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/compat.py, razorpay_env/lib/python3.11/site-packages/billiard/compat.py",
+        "Implemented symbols/components: legacy_path, iscoroutinefunction, is_async_function, signature, getlocation, num_mock_patch_args, send_offset, _fscodec, fsencode, fsdecode, maybe_fileno"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/argparsing",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/config/argparsing.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/config/argparsing.py",
+        "Implemented symbols/components: __init__, prog, processoption, getgroup, addoption"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/exceptions",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/config/exceptions.py",
+        "razorpay_env/lib/python3.11/site-packages/amqp/exceptions.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/exceptions.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/exceptions.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/config/exceptions.py, razorpay_env/lib/python3.11/site-packages/amqp/exceptions.py, razorpay_env/lib/python3.11/site-packages/billiard/exceptions.py, razorpay_env/lib/python3.11/site-packages/celery/exceptions.py",
+        "Implemented symbols/components: __init__, __str__, method, error_for_code, reraise, humanize, __reduce__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/findpaths",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/config/findpaths.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/config/findpaths.py",
+        "Implemented symbols/components: _parse_ini_config, load_config_dict_from_file, make_scalar, locate_config, get_common_ancestor, get_dirs_from_args"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/debugging",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/debugging.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/debugging.py",
+        "Implemented symbols/components: _validate_usepdb_cls, pytest_addoption, pytest_configure, fin, _is_capturing, _import_pdb_cls"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/deprecated",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/deprecated.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/deprecated.py",
+        "Implemented symbols/components: my_private_function, check_ispytest"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/doctest",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/doctest.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/doctest.py",
+        "Implemented symbols/components: pytest_addoption, pytest_unconfigure, pytest_collect_file, _is_setup_py, _is_doctest, _is_main_py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/faulthandler",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/faulthandler.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/faulthandler.py",
+        "Implemented symbols/components: pytest_addoption, pytest_configure, pytest_unconfigure, get_stderr_fileno, get_timeout_config_value, get_exit_on_timeout_config_value"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/fixtures",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/fixtures.py",
+        "Implemented symbols/components: pytest_sessionstart, get_scope_package, is_visibility_more_specific, get_scope_node, getfixturemarker, get_param_argkeys"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/freeze_support",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/freeze_support.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/freeze_support.py",
+        "Implemented symbols/components: freeze_includes, _iter_all_modules"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/helpconfig",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/helpconfig.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/helpconfig.py",
+        "Implemented symbols/components: __init__, __call__, pytest_addoption, pytest_cmdline_parse, unset_tracing, show_version_verbose"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/hookspec",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/hookspec.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/hookspec.py",
+        "Implemented symbols/components: pytest_addhooks, pytest_plugin_registered, pytest_addoption, pytest_configure, pytest_cmdline_parse, pytest_load_initial_conftests"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/junitxml",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/junitxml.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/junitxml.py",
+        "Implemented symbols/components: bin_xml_escape, repl, merge_family, __init__, append, add_property"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/legacypath",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/legacypath.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/legacypath.py",
+        "Implemented symbols/components: __init__, tmpdir, test_tmproot, request, plugins"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/logging",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/logging.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/logging.py",
+        "Implemented symbols/components: _remove_ansi_escape_sequences, formatTime, __init__, add_color_level, format"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/main",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/main.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/main.py",
+        "Implemented symbols/components: pytest_addoption, validate_basetemp, is_ancestor, wrap_session, pytest_cmdline_main, _main"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/expression",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/mark/expression.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/mark/expression.py",
+        "Implemented symbols/components: __init__, lex, accept, reject"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/structures",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/mark/structures.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/mark/structures.py",
+        "Implemented symbols/components: istestfunc, get_empty_parameterset_mark, param, extract_from, test_foo, _parse_parametrize_args"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/monkeypatch",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/monkeypatch.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/monkeypatch.py",
+        "Implemented symbols/components: monkeypatch, resolve, annotated_getattr, derive_importpath, __init__, context"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/nodes",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/nodes.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/nodes.py",
+        "Implemented symbols/components: norm_sep, __call__, _create, __init__, from_parent, ihook"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/outcomes",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/outcomes.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/outcomes.py",
+        "Implemented symbols/components: __init__, __repr__, __call__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pastebin",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/pastebin.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/pastebin.py",
+        "Implemented symbols/components: pytest_addoption, pytest_configure, tee_write, pytest_unconfigure, create_new_paste, pytest_terminal_summary"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pathlib",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/pathlib.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/pathlib.py",
+        "Implemented symbols/components: _ignore_error, get_lock_path, on_rm_rf_error, chmod_rw, ensure_extended_length_path, get_extended_length_path_str"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pytester",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/pytester.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/pytester.py",
+        "Implemented symbols/components: pytest_addoption, pytest_configure, get_open_files, isopen, matching_platform, pytest_runtest_protocol"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pytester_assertions",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/pytester_assertions.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/pytester_assertions.py",
+        "Implemented symbols/components: assertoutcome, assert_outcomes"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/python",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/python.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/python.py",
+        "Implemented symbols/components: pytest_addoption, pytest_generate_tests, pytest_configure, async_fail, pytest_pyfunc_call, pytest_collect_directory"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/python_api",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/python_api.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/python_api.py",
+        "Implemented symbols/components: _compare_approx, __init__, __repr__, _repr_compare, __eq__, __bool__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/raises",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/raises.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/raises.py",
+        "Implemented symbols/components: raises, _match_pattern"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/recwarn",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/recwarn.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/recwarn.py",
+        "Implemented symbols/components: recwarn, deprecated_call, api_call_v2, warns"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/reports",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/reports.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/reports.py",
+        "Implemented symbols/components: getworkerinfoline, __init__, __getattr__, toterminal, get_sections, longreprtext"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/runner",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/runner.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/runner.py",
+        "Implemented symbols/components: pytest_addoption, pytest_terminal_summary, pytest_sessionstart, pytest_sessionfinish, pytest_runtest_protocol, runtestprotocol"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/scope",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/scope.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/scope.py",
+        "Implemented symbols/components: next_lower, next_higher, __lt__, from_user"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/setuponly",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/setuponly.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/setuponly.py",
+        "Implemented symbols/components: pytest_addoption, pytest_fixture_setup, pytest_fixture_post_finalizer, _show_fixture_action, pytest_cmdline_main"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/setupplan",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/setupplan.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/setupplan.py",
+        "Implemented symbols/components: pytest_addoption, pytest_fixture_setup, pytest_cmdline_main"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/skipping",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/skipping.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/skipping.py",
+        "Implemented symbols/components: pytest_addoption, pytest_configure, nop, evaluate_condition, evaluate_skip_marks, evaluate_xfail_marks"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/stash",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/stash.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/stash.py",
+        "Implemented symbols/components: __init__, __setitem__, __getitem__, get, setdefault, __delitem__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/stepwise",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/stepwise.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/stepwise.py",
+        "Implemented symbols/components: pytest_addoption, pytest_configure, pytest_sessionfinish, last_cache_date, empty, update_date_to_now"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/subtests",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/subtests.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/subtests.py",
+        "Implemented symbols/components: pytest_addoption, __post_init__, _to_json, _from_json, head_line, _sub_test_description"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/terminal",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/terminal.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/terminal.py",
+        "Implemented symbols/components: __init__, __call__, pytest_addoption, pytest_configure, mywriter, getreportopt"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/terminalprogress",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/terminalprogress.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/terminalprogress.py",
+        "Implemented symbols/components: pytest_configure"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/threadexception",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/threadexception.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/threadexception.py",
+        "Implemented symbols/components: collect_thread_exception, cleanup, thread_exception_hook, pytest_configure, pytest_runtest_setup, pytest_runtest_call"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/timing",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/timing.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/timing.py",
+        "Implemented symbols/components: elapsed, as_utc, seconds, sleep, time, patch"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/tmpdir",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/tmpdir.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/tmpdir.py",
+        "Implemented symbols/components: __init__, from_config, _ensure_relative_to_basetemp, mktemp, getbasetemp, get_user"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/tracemalloc",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/tracemalloc.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/tracemalloc.py",
+        "Implemented symbols/components: tracemalloc_message"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/unittest",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/unittest.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/unittest.py",
+        "Implemented symbols/components: pytest_pycollect_makeitem, newinstance, collect, _register_unittest_setup_class_fixture, process_teardown_exceptions, unittest_setup_class_fixture"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/unraisableexception",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/unraisableexception.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/unraisableexception.py",
+        "Implemented symbols/components: gc_collect_harder, collect_unraisable, cleanup, unraisable_hook, pytest_configure, pytest_unconfigure"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/warning_types",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/warning_types.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/warning_types.py",
+        "Implemented symbols/components: simple, format, warn_explicit_for"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/warnings",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/_pytest/warnings.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/_pytest/warnings.py",
+        "Implemented symbols/components: catch_warnings_for_item, warning_record_to_str, pytest_runtest_protocol, pytest_collection, pytest_terminal_summary, pytest_sessionfinish"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/__version__",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/__version__.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/__version__.py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/context",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/context.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/context.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/context.py, razorpay_env/lib/python3.11/site-packages/billiard/context.py",
+        "Implemented symbols/components: __init__, send, throw, close, __await__, __aenter__, cpu_count, Manager, Pipe, Lock, RLock"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/core",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/core.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/core.py",
+        "Implemented symbols/components: set_result, set_exception, _connection_worker_thread, __init__, __del__, stop"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/cursor",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/cursor.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/cursor.py",
+        "Implemented symbols/components: __init__, __aiter__, _fetch_chunked, _execute, execute, executemany"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/__main__",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/__main__.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/__main__.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/__main__.py, razorpay_env/lib/python3.11/site-packages/celery/__main__.py",
+        "Implemented symbols/components: main"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/helpers",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/helpers.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/helpers.py",
+        "Implemented symbols/components: setup_logger"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/perf",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/perf.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/perf.py",
+        "Implemented symbols/components: timed, wrapper, setUpClass, tearDownClass, test_connection_memory, test_connection_file"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/smoke",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/smoke.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/aiosqlite/tests/smoke.py",
+        "Implemented symbols/components: setUpClass, setUp, test_connection_await, test_connection_context, test_connection_locations, __str__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/abstract_channel",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/abstract_channel.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/abstract_channel.py",
+        "Implemented symbols/components: __init__, __enter__, __exit__, send_method, close, wait"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/basic_message",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/basic_message.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/basic_message.py",
+        "Implemented symbols/components: __init__, headers, delivery_tag"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/channel",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/channel.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/channel.py",
+        "Implemented symbols/components: __init__, then, _setup_listeners, collect, _do_revive, close"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/connection",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/connection.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/connection.py",
+        "razorpay_env/lib/python3.11/site-packages/billiard/dummy/connection.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/connection.py, razorpay_env/lib/python3.11/site-packages/billiard/connection.py, razorpay_env/lib/python3.11/site-packages/billiard/dummy/connection.py",
+        "Implemented symbols/components: __init__, __repr__, __enter__, __exit__, then, _setup_listeners, _init_timeout, _check_timeout, arbitrary_address, _validate_family, address_type, accept, close, Client"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/method_framing",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/method_framing.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/method_framing.py",
+        "Implemented symbols/components: frame_handler, on_frame, __init__, buf, frame_writer"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/platform",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/platform.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/platform.py",
+        "Implemented symbols/components: _linux_version_to_tuple, _versionatom"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/protocol",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/protocol.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/protocol.py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/sasl",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/sasl.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/sasl.py",
+        "Implemented symbols/components: mechanism, start, __init__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/serialization",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/serialization.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/serialization.py",
+        "Implemented symbols/components: _read_item, loads, _flushbits, dumps, _write_table, _write_array"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/spec",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/spec.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/spec.py",
+        "Implemented symbols/components: method"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/transport",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/transport.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/transport.py",
+        "Implemented symbols/components: to_host_port, __init__, __repr__, connect, having_timeout, _connect"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/utils",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/amqp/utils.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/app/utils.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/amqp/utils.py, razorpay_env/lib/python3.11/site-packages/celery/app/utils.py",
+        "Implemented symbols/components: set_cloexec, coro, _boot, str_to_bytes, bytes_to_str, get_logger, appstr, __init__, broker_read_url, broker_write_url, broker_url, result_backend"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_asyncio",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_backends/_asyncio.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_backends/_asyncio.py",
+        "Implemented symbols/components: __init__, __enter__, __exit__, close, get_loop, run"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_trio",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_backends/_trio.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_backends/_trio.py",
+        "Implemented symbols/components: ensure_returns_coro, wrapper, inner_wrapper, __new__, __init__, __enter__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_asyncio_selector_thread",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_asyncio_selector_thread.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_asyncio_selector_thread.py",
+        "Implemented symbols/components: __init__, start, _stop, _notify_self, add_reader, add_writer"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_contextmanagers",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_contextmanagers.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_contextmanagers.py",
+        "Implemented symbols/components: __contextmanager__, __asynccontextmanager__, __enter__, __exit__, __aenter__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_eventloop",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_eventloop.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_eventloop.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_eventloop.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_eventloop.py",
+        "Implemented symbols/components: run, sleep, sleep_forever, sleep_until, current_time, get_all_backends, current_token, cancelled_exception_class, checkpoint, checkpoint_if_cancelled"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_exceptions",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_exceptions.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_exceptions.py",
+        "Implemented symbols/components: __init__, __str__, iterate_exceptions"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_fileio",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_fileio.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_fileio.py",
+        "Implemented symbols/components: __init__, __getattr__, limiter, wrapped, __aiter__, aclose"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_resources",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_resources.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_resources.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_resources.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_resources.py",
+        "Implemented symbols/components: aclose_forcefully, __aenter__, __aexit__, aclose"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_signals",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_signals.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_signals.py",
+        "Implemented symbols/components: open_signal_receiver"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_sockets",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_sockets.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_sockets.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_sockets.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_sockets.py",
+        "Implemented symbols/components: idna2008_resolve, connect_tcp, _validate_socket, extra_attributes, _raw_socket, from_socket, send_fds"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_streams",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_streams.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_streams.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_streams.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_streams.py",
+        "Implemented symbols/components: __new__, __aiter__, __anext__, receive, send, send_eof"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_subprocesses",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_subprocesses.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_subprocesses.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_subprocesses.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_subprocesses.py",
+        "Implemented symbols/components: run_process, drain_stream, open_process, wait, terminate, kill, send_signal, pid, returncode"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_synchronization",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_synchronization.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_synchronization.py",
+        "Implemented symbols/components: __new__, set, is_set, wait, statistics"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_tasks",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_tasks.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_tasks.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_tasks.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_tasks.py",
+        "Implemented symbols/components: started, __new__, cancel, deadline, cancel_called, get_callable_name, call_for_coroutine"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_tempfile",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_tempfile.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_tempfile.py",
+        "Implemented symbols/components: __init__, __aenter__, __aexit__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_testing",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_testing.py",
+        "razorpay_env/lib/python3.11/site-packages/anyio/abc/_testing.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_testing.py, razorpay_env/lib/python3.11/site-packages/anyio/abc/_testing.py",
+        "Implemented symbols/components: __init__, __eq__, __hash__, __repr__, has_pending_cancellation, get_current_task, __enter__, __exit__, run_asyncgen_fixture, run_fixture, run_test, is_running"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_typedattr",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/_core/_typedattr.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/_core/_typedattr.py",
+        "Implemented symbols/components: typed_attribute, __init_subclass__, extra_attributes, extra"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/from_thread",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/from_thread.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/from_thread.py",
+        "Implemented symbols/components: _token_or_error, run, run_sync, __init__, run_async_cm, __enter__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/functools",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/functools.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/functools.py",
+        "Implemented symbols/components: __init__, cache_info, cache_parameters, cache_clear, __call__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/itertools",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/itertools.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/itertools.py",
+        "Implemented symbols/components: __anext__, _iterate, fill, __init__, _operator_add"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/lowlevel",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/lowlevel.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/lowlevel.py",
+        "Implemented symbols/components: checkpoint, checkpoint_if_cancelled, cancel_shielded_checkpoint, current_token, __init__, __enter__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pytest_plugin",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/pytest_plugin.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/pytest_plugin.py",
+        "Implemented symbols/components: extract_backend_and_options, get_runner, pytest_addoption, pytest_configure, pytest_fixture_setup, wrapper"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/buffered",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/buffered.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/streams/buffered.py",
+        "Implemented symbols/components: aclose, buffer, extra_attributes, feed_data, receive, receive_exactly"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/file",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/file.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/streams/file.py",
+        "Implemented symbols/components: __init__, aclose, extra_attributes, from_path, receive, seek"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/memory",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/memory.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/streams/memory.py",
+        "Implemented symbols/components: __repr__, statistics, __post_init__, receive_nowait, receive, clone"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/stapled",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/stapled.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/streams/stapled.py",
+        "Implemented symbols/components: receive, send, send_eof, aclose, extra_attributes"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/text",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/text.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/streams/text.py",
+        "Implemented symbols/components: __post_init__, receive, aclose, extra_attributes, send"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/tls",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/streams/tls.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/streams/tls.py",
+        "Implemented symbols/components: wrap, _call_sslobject_method, unwrap, aclose, receive, send"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/to_interpreter",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/to_interpreter.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/to_interpreter.py",
+        "Implemented symbols/components: _interp_call, __init__, destroy, call"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/to_process",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/to_process.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/to_process.py",
+        "Implemented symbols/components: run_sync, send_raw_command, current_default_process_limiter, process_worker"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/to_thread",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/anyio/to_thread.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/anyio/to_thread.py",
+        "Implemented symbols/components: run_sync, current_default_thread_limiter"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_ext",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/_ext.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/_ext.py",
+        "Implemented symbols/components: ensure_multiprocessing, ensure_SemLock"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_win",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/_win.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/_win.py",
+        "Implemented symbols/components: CreateToolhelp32Snapshot, Process32First, Process32Next, _Process32n, get_all_processes_pids, get_processtree_pids"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/common",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/common.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/common.py",
+        "Implemented symbols/components: human_status, pickle_loads, maybe_setsignal, _shutdown_cleanup, signum, _should_override_term_signal"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/einfo",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/einfo.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/einfo.py",
+        "Implemented symbols/components: __init__, co_positions"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/forkserver",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/forkserver.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/forkserver.py",
+        "Implemented symbols/components: __init__, set_forkserver_preload, get_inherited_fds, connect_to_new_process, ensure_running, main"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/heap",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/heap.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/heap.py",
+        "Implemented symbols/components: __init__, __getstate__, __setstate__, reduce_arena, rebuild_arena"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/managers",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/managers.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/managers.py",
+        "Implemented symbols/components: reduce_array, rebuild_as_list, __init__, __getstate__, __setstate__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/pool",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/pool.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/pool.py",
+        "Implemented symbols/components: _get_send_offset, mapstar, starmapstar, error, stop_if_not_current, shrink"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/popen_fork",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/popen_fork.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/popen_fork.py",
+        "Implemented symbols/components: __init__, duplicate_for_child, poll, wait, terminate, _launch"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/popen_forkserver",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/popen_forkserver.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/popen_forkserver.py",
+        "Implemented symbols/components: __init__, detach, duplicate_for_child, _launch, poll"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/popen_spawn_posix",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/popen_spawn_posix.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/popen_spawn_posix.py",
+        "Implemented symbols/components: __init__, detach, duplicate_for_child, _launch"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/popen_spawn_win32",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/popen_spawn_win32.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/popen_spawn_win32.py",
+        "Implemented symbols/components: close_thread_handle, __init__, close, duplicate_for_child, wait, poll"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/process",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/process.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/process.py",
+        "Implemented symbols/components: current_process, _set_current_process, _cleanup, _maybe_flush, active_children, _Popen"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/queues",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/queues.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/queues.py",
+        "Implemented symbols/components: __init__, __getstate__, __setstate__, _after_fork, put, get"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/reduction",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/reduction.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/reduction.py",
+        "Implemented symbols/components: __init__, register, dumps, loadbuf, dispatcher"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/resource_sharer",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/resource_sharer.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/resource_sharer.py",
+        "Implemented symbols/components: __init__, send, detach, close"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/semaphore_tracker",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/semaphore_tracker.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/semaphore_tracker.py",
+        "Implemented symbols/components: __init__, getfd, ensure_running, register, unregister, _send"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/sharedctypes",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/sharedctypes.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/sharedctypes.py",
+        "Implemented symbols/components: _new_value, RawValue, RawArray, Value, Array, copy"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/spawn",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/spawn.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/spawn.py",
+        "Implemented symbols/components: _module_parent_dir, _module_dir, _Django_old_layout_hack__save, _Django_old_layout_hack__load, set_executable, get_executable"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/synchronize",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/billiard/synchronize.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/billiard/synchronize.py",
+        "Implemented symbols/components: _semname, __init__, _after_fork, _cleanup, _make_methods, __enter__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/_state",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/_state.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/_state.py",
+        "Implemented symbols/components: connect_on_app_finalize, _announce_app_finalized, _set_task_join_will_block, task_join_will_block, set_default_app, _get_current_app"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/amqp",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/amqp.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/amqp.py",
+        "Implemented symbols/components: utf8dict, __init__, __getitem__, __setitem__, __missing__, add"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/annotations",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/annotations.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/annotations.py",
+        "Implemented symbols/components: annotate_any, annotate, prepare, expand_annotation, resolve_all"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/autoretry",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/autoretry.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/autoretry.py",
+        "Implemented symbols/components: add_autoretry_behaviour, run"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/backends",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/backends.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/backends.py",
+        "Implemented symbols/components: by_name, by_url"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/base",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/base.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/base.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/base.py, razorpay_env/lib/python3.11/site-packages/celery/backends/base.py",
+        "Implemented symbols/components: app_has_custom, _unpickle_appattr, _after_fork_cleanup_app, __init__, __setitem__, clear, unpickle_backend, ignore, _is_request_ignore_result, as_uri, mark_as_started"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/builtins",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/builtins.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/builtins.py",
+        "Implemented symbols/components: add_backend_cleanup_task, backend_cleanup, add_accumulate_task, accumulate, add_unlock_chord_task, unlock_chord"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/control",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/control.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/control.py",
+        "Implemented symbols/components: flatten_reply, _after_fork_cleanup_control, __init__, _prepare, _request, report"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/defaults",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/defaults.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/defaults.py",
+        "Implemented symbols/components: Namespace, old_ns, __init__, to_python, __repr__, _flatten_keys"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/events",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/events.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/events.py",
+        "Implemented symbols/components: __init__, Receiver, Dispatcher, State, default_dispatcher"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/log",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/log.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/log.py",
+        "Implemented symbols/components: format, __init__, setup, redirect_stdouts, setup_logging_subsystem, _configure_logger"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/registry",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/registry.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/registry.py",
+        "Implemented symbols/components: __missing__, register, unregister, regular, periodic, filter_types"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/routes",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/routes.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/routes.py",
+        "Implemented symbols/components: __init__, __call__, route, expand_destination, lookup_route"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/task",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/task.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/task.py",
+        "Implemented symbols/components: _strflags, _reprtask, __init__, _get_custom_headers, update, clear"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/trace",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/app/trace.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/app/trace.py",
+        "Implemented symbols/components: info, task_has_custom, get_log_policy, get_task_name, __init__, handle_error_state"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/beat",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/apps/beat.py",
+        "razorpay_env/lib/python3.11/site-packages/celery/beat.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/apps/beat.py, razorpay_env/lib/python3.11/site-packages/celery/beat.py",
+        "Implemented symbols/components: __init__, run, setup_logging, start_scheduler, banner, init_loader, __call__, delay, default_now, _next_instance"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/multi",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/apps/multi.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/apps/multi.py",
+        "Implemented symbols/components: celery_exe, build_nodename, build_expander, format_opt, _kwargs_to_command_line, __init__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/worker",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/apps/worker.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/apps/worker.py",
+        "Implemented symbols/components: active_thread_count, safe_say, on_before_init, on_after_init, on_init_blueprint, on_start"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/arangodb",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/arangodb.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/arangodb.py",
+        "Implemented symbols/components: __init__, connection, db, expires_delta, get, set"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/asynchronous",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/asynchronous.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/asynchronous.py",
+        "Implemented symbols/components: register_drainer, _inner, __init__, start, stop, drain_events_until"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/azureblockblob",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/azureblockblob.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/azureblockblob.py",
+        "Implemented symbols/components: __init__, _parse_url, _blob_service_client, get, set, mget"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/cache",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/cache.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/cache.py",
+        "Implemented symbols/components: import_best_memcache, get_best_memcache, Client, __init__, get, get_multi"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/cassandra",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/cassandra.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/cassandra.py",
+        "Implemented symbols/components: buf_t, __init__, _get_connection, _store_result, as_uri, _get_task_meta_for"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/consul",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/consul.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/consul.py",
+        "Implemented symbols/components: __init__, _init_from_params, client, _key_to_consul_key, get, mget"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/cosmosdbsql",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/cosmosdbsql.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/cosmosdbsql.py",
+        "Implemented symbols/components: __init__, _parse_url, _client, _create_database_if_not_exists, _create_collection_if_not_exists, _database_link"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/couchbase",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/couchbase.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/couchbase.py",
+        "Implemented symbols/components: __init__, _get_connection, connection, get, set, mget"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/couchdb",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/couchdb.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/couchdb.py",
+        "Implemented symbols/components: __init__, _get_connection, connection, get, set, mget"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/dynamodb",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/dynamodb.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/dynamodb.py",
+        "Implemented symbols/components: __init__, _get_client, _get_table_schema, _get_or_create_table, _has_ttl, _validate_ttl_methods"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/elasticsearch",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/elasticsearch.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/elasticsearch.py",
+        "Implemented symbols/components: __init__, exception_safe_to_retry, get, _get, _set_with_state, set"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/filesystem",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/filesystem.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/filesystem.py",
+        "Implemented symbols/components: __init__, __reduce__, _find_path, _do_directory_test, _filename, get"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/mongodb",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/mongodb.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/mongodb.py",
+        "Implemented symbols/components: __init__, _ensure_mongodb_uri_compliance, _prepare_client_options, _get_connection, encode, decode"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/redis",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/redis.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/redis.py",
+        "Implemented symbols/components: __init__, on_after_fork, _reconnect_pubsub, reconnect_on_error, _maybe_cancel_ready_task, on_state_change"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/rpc",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/rpc.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/rpc.py",
+        "Implemented symbols/components: _on_after_fork_cleanup_backend, __init__, start, drain_events, stop, on_after_fork"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/s3",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/backends/s3.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/backends/s3.py",
+        "Implemented symbols/components: __init__, _get_s3_object, get, set, delete, _connect_to_s3"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/bootsteps",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/bootsteps.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/bootsteps.py",
+        "Implemented symbols/components: _pre, _label, label, _get_prefix, node, edge"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/canvas",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/canvas.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/canvas.py",
+        "Implemented symbols/components: maybe_unroll_group, task_name_from, _stamp_regen_task, _merge_dictionaries, on_group_start, on_group_end"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/local",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/local.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/local.py",
+        "Implemented symbols/components: _default_cls_attr, __new__, __get__, try_import, __init__, __name__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/platforms",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/platforms.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/platforms.py",
+        "Implemented symbols/components: pyimplementation, __init__, acquire, is_locked, release, read_pid"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/result",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/result.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/result.py",
+        "Implemented symbols/components: assert_will_not_block, allow_join_result, denied_join_result, __init__, ignored"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/schedules",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/schedules.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/schedules.py",
+        "Implemented symbols/components: cronfield, __init__, now, remaining_estimate, is_due, maybe_make_aware"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/signals",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/signals.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/signals.py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/states",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/celery/states.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/celery/states.py",
+        "Implemented symbols/components: precedence, __gt__, __ge__, __lt__, __le__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/click_plugins",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/click_plugins.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/click_plugins.py",
+        "Implemented symbols/components: with_plugins, cli, subcommand, decorator, __init__, invoke"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/py",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/py.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/py.py"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/six",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/six.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/six.py",
+        "Implemented symbols/components: __len__, _add_doc, _import_module, __init__, __get__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    },
+    {
+      "heading": "Module: razorpay_env/typing_extensions",
+      "status": "Audited on `main`",
+      "owner": "MrXTheAnon",
+      "branch": "main",
+      "commits": [
+        "c527450"
+      ],
+      "techStack": [],
+      "filesTouched": [
+        "razorpay_env/lib/python3.11/site-packages/typing_extensions.py"
+      ],
+      "summary": [
+        "Audited existing files: razorpay_env/lib/python3.11/site-packages/typing_extensions.py",
+        "Implemented symbols/components: _caller, __init__, __init_subclass__, __setattr__, __name__"
+      ],
+      "updatedAt": "2026-10-31T18:14:50.283Z"
+    }
+  ]
+}
